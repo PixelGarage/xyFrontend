@@ -1,0 +1,97 @@
+/* --------------------------------------------------
+ * Pixelgarage fonts
+ * --------------------------------------------------*/
+//
+// webfont licences
+//@import '../fonts/BrandonGrotesque/BrandonGrotesque-Licence.css';
+
+//
+// Google fonts
+//@import url(http://fonts.googleapis.com/css?family=Droid+Serif);
+
+//
+// Define customer specific fonts
+$pxl-font-path: '~assets/fonts';
+
+// title font
+$pxl-title-font: 'ExoRegular';
+$pxl-subtitle-font: 'ExoRegular';
+
+// text fonts
+$pxl-text-font: 'ExoLight';
+$pxl-text-font-light: 'ExoThin';
+$pxl-text-font-medium: $pxl-text-font;
+$pxl-text-font-bold: 'ExoRegular';
+$pxl-text-font-italic: 'ExoLightItalic';
+$pxl-text-font-light-italic: 'ExoThinItalic';
+$pxl-text-font-medium-italic: $pxl-text-font-italic;
+$pxl-text-font-bold-italic: 'ExoRegularItalic';
+
+// form font
+$pxl-form-font: $pxl-text-font;
+
+// overrides
+$font-family-base: $pxl-text-font;
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+//
+// Font faces
+//
+@font-face {
+  font-family: 'ExoRegular';
+  src: url('#{$pxl-font-path}/Exo-Regular/Exo-Regular-webfont.eot');
+  src: url('#{$pxl-font-path}/Exo-Regular/Exo-Regular-webfont.eot') format('embedded-opentype'),
+  //url('#{$pxl-font-path}/SohoGothicProRegular/SohoGothicProRegular.woff2') format('woff2'),
+  url('#{$pxl-font-path}/Exo-Regular/Exo-Regular-webfont.woff') format('woff'),
+  url('#{$pxl-font-path}/Exo-Regular/Exo-Regular-webfont.ttf') format('truetype'),
+  url('#{$pxl-font-path}/Exo-Regular/Exo-Regular-webfont.svg#ExoRegular') format('svg');
+}
+@font-face {
+  font-family: 'ExoRegularItalic';
+  src: url('#{$pxl-font-path}/Exo-Regular-Italic/Exo-Regular-Italic-webfont.eot');
+  src: url('#{$pxl-font-path}/Exo-Regular-Italic/Exo-Regular-Italic-webfont.eot') format('embedded-opentype'),
+  //url('#{$pxl-font-path}/SohoGothicProRegular/SohoGothicProRegular.woff2') format('woff2'),
+  url('#{$pxl-font-path}/Exo-Regular-Italic/Exo-Regular-Italic-webfont.woff') format('woff'),
+  url('#{$pxl-font-path}/Exo-Regular-Italic/Exo-Regular-Italic-webfont.ttf') format('truetype'),
+  url('#{$pxl-font-path}/Exo-Regular-Italic/Exo-Regular-Italic-webfont.svg#ExoRegularItalic') format('svg');
+}
+
+@font-face {
+  font-family: 'ExoLight';
+  src: url('#{$pxl-font-path}/Exo-Light/Exo-Light-webfont.eot');
+  src: url('#{$pxl-font-path}/Exo-Light/Exo-Light-webfont.eot') format('embedded-opentype'),
+  //url('#{$pxl-font-path}/SohoGothicProRegular/SohoGothicProRegular.woff2') format('woff2'),
+  url('#{$pxl-font-path}/Exo-Light/Exo-Light-webfont.woff') format('woff'),
+  url('#{$pxl-font-path}/Exo-Light/Exo-Light-webfont.ttf') format('truetype'),
+  url('#{$pxl-font-path}/Exo-Light/Exo-Light-webfont.svg#ExoLight') format('svg');
+}
+@font-face {
+  font-family: 'ExoLightItalic';
+  src: url('#{$pxl-font-path}/Exo-Light-Italic/Exo-Light-Italic-webfont.eot');
+  src: url('#{$pxl-font-path}/Exo-Light-Italic/Exo-Light-Italic-webfont.eot') format('embedded-opentype'),
+  //url('#{$pxl-font-path}/SohoGothicProRegular/SohoGothicProRegular.woff2') format('woff2'),
+  url('#{$pxl-font-path}/Exo-Light-Italic/Exo-Light-Italic-webfont.woff') format('woff'),
+  url('#{$pxl-font-path}/Exo-Light-Italic/Exo-Light-Italic-webfont.ttf') format('truetype'),
+  url('#{$pxl-font-path}/Exo-Light-Italic/Exo-Light-Italic-webfont.svg#ExoLightItalic') format('svg');
+}
+
+@font-face {
+  font-family: 'ExoThin';
+  src: url('#{$pxl-font-path}/Exo-Thin/Exo-Thin-webfont.eot');
+  src: url('#{$pxl-font-path}/Exo-Thin/Exo-Thin-webfont.eot') format('embedded-opentype'),
+  //url('#{$pxl-font-path}/SohoGothicProRegular/SohoGothicProRegular.woff2') format('woff2'),
+  url('#{$pxl-font-path}/Exo-Thin/Exo-Thin-webfont.woff') format('woff'),
+  url('#{$pxl-font-path}/Exo-Thin/Exo-Thin-webfont.ttf') format('truetype'),
+  url('#{$pxl-font-path}/Exo-Thin/Exo-Thin-webfont.svg#ExoThin') format('svg');
+}
+@font-face {
+  font-family: 'ExoThinItalic';
+  src: url('#{$pxl-font-path}/Exo-Thin-Italic/Exo-Thin-Italic-webfont.eot');
+  src: url('#{$pxl-font-path}/Exo-Thin-Italic/Exo-Thin-Italic-webfont.eot') format('embedded-opentype'),
+  //url('#{$pxl-font-path}/SohoGothicProRegular/SohoGothicProRegular.woff2') format('woff2'),
+  url('#{$pxl-font-path}/Exo-Thin-Italic/Exo-Thin-Italic-webfont.woff') format('woff'),
+  url('#{$pxl-font-path}/Exo-Thin-Italic/Exo-Thin-Italic-webfont.ttf') format('truetype'),
+  url('#{$pxl-font-path}/Exo-Thin-Italic/Exo-Thin-Italic-webfont.svg#ExoThinItalic') format('svg');
+}

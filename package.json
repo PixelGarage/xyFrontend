@@ -1,0 +1,46 @@
+{
+  "name": "xyfrontend",
+  "version": "1.0.0",
+  "description": "Pixelgarage Frontend Template",
+  "author": "Ralph Moser",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.12",
+    "@fortawesome/free-solid-svg-icons": "^5.6.3",
+    "@fortawesome/vue-fontawesome": "^0.1.4",
+    "@nuxtjs/axios": "^5.0.0",
+    "@nuxtjs/markdownit": "^1.2.3",
+    "acorn": "^6.0.5",
+    "bootstrap": "^4.1.3",
+    "bootstrap-vue": "^2.0.0-beta",
+    "cross-env": "^5.2.0",
+    "i": "^0.3.6",
+    "jason-parse": "^1.0.0",
+    "npm": "^6.5.0",
+    "nuxt": "^2.0.0",
+    "sanitize-html": "^1.20.0",
+    "vue-masonry": "^0.11.7",
+    "vue-no-ssr": "^1.1.1",
+    "vuejs-logger": "^1.5.3",
+    "waterwheel": "^1.3.7"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^5.0.1",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-prettier": "2.6.2",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.11.0",
+    "prettier": "1.14.3",
+    "sass-loader": "^7.1.0"
+  }
+}

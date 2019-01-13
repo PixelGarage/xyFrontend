@@ -1,0 +1,199 @@
+// Variable overrides
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+$enable-caret:              true;
+$enable-rounded:            true;
+$enable-shadows:            false;
+$enable-gradients:          false;
+$enable-transitions:        true;
+$enable-grid-classes:       true;
+$enable-print-styles:       true;
+
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+$spacer: 1rem !default;
+
+//
+// Color system
+//
+// common colors
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+$blue:    #007bff;
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #e83e8c;
+$red:     #dc3545;
+$orange:  #fd7e14;
+$yellow:  #ffc107;
+$green:   #28a745;
+$teal:    #20c997;
+$cyan:    #17a2b8;
+
+$primary :      $blue;
+$secondary:     $gray-600;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $gray-800;
+
+//
+// pxl site colors
+$pxl-color-main: #333;
+$pxl-color-second: #808080;
+$pxl-color-border: $gray-500;
+$pxl-color-border-active: $orange;
+
+// Body
+//
+// Settings for the `<body>` element.
+$body-bg:                   $white;
+$body-color:                $gray-400;
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:                $gray-900;
+$link-decoration:           none;
+$link-hover-color:          $orange;
+$link-hover-decoration:     none;
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+$text-color:             $gray-900;
+$text-color-disabled:    $gray-600;
+$text-muted:             $text-color-disabled;
+$text-color-form:        $text-color;
+$text-color-placeholder: $gray-500;
+$text-color-code:        $text-color;
+
+$title-letter-spacing: normal;
+$title-line-height: 1;
+$title-text-align: left;
+$title-text-align-small: left;
+
+$subtitle-letter-spacing: normal;
+$subtitle-line-height: 1.14em;
+$subtitle-text-align: left;
+$subtitle-text-align-small: left;
+
+$text-letter-spacing: 0.02em;
+$text-line-height: 1.14em;
+$text-text-align: left;
+$text-text-align-small: left;
+
+$subtext-letter-spacing: 0;
+$subtext-line-height: 1.1667em;
+$subtext-text-align: left;
+$subtext-text-align-small: left;
+
+$form-letter-spacing: normal;
+$form-line-height: 1.15em;
+$form-text-align: left;
+
+$form-button-letter-spacing: normal;
+$form-button-line-height: 1;
+$form-button-text-align: center;
+
+//
+// responsive font sizes
+$resp-title-size-max:     36px;
+$resp-title-size-med:     30px;
+$resp-title-size-min:     24px;
+
+$resp-subtitle-size-max:  28px;
+$resp-subtitle-size-med:  24px;
+$resp-subtitle-size-min:  20px;
+
+$resp-text-size-max:      20px;
+$resp-text-size-med:      18px;
+$resp-text-size-min:      16px;
+
+$resp-subtext-size-max:   16px;
+$resp-subtext-size-med:   14px;
+$resp-subtext-size-min:   12px;
+
+$resp-button-size-max:    28px;
+$resp-button-size-med:    28px;
+$resp-button-size-min:    24px;
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 36em, // 576px
+  md: 48em, // 768px
+  lg: 62em, // 992px
+  xl: 75em  // 1200px
+);
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns:                12;
+$grid-gutter-width:           30px;
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+$line-height-lg:              1.5;
+$line-height-sm:              1.5;
+
+$border-width:                1px;
+$border-color:                $gray-300;
+
+$border-radius:               .25rem;
+$border-radius-lg:            .3rem;
+$border-radius-sm:            .2rem;
+
+$box-shadow-sm:               0 .125rem .25rem rgba($black, .075);
+$box-shadow:                  0 .5rem 1rem rgba($black, .15);
+$box-shadow-lg:               0 1rem 3rem rgba($black, .175);
+
+$component-active-color:      $white;
+$component-active-bg:         $primary;
+
+$caret-width:                 .3em;
+
+$transition-base:             all .2s ease-in-out;
+$transition-fade:             opacity .15s linear;
+$transition-collapse:         height .35s ease;
+
