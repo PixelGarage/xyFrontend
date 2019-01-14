@@ -31,6 +31,9 @@ export default {
     }
   },
   methods: {
+    finishAnimation: function () {
+      this.$el.classList.add('animated');
+    },
     addStepClassToCubes: function(cubes, stepClass, prevClass) {
       const prevCubes = prevClass ? this.$el.querySelectorAll('.' + prevClass) : [];
       for (let cube of cubes) {
@@ -81,6 +84,9 @@ export default {
     }).then(res => {
       // forth turn
       return this.step(4, 'front-180');
+    }).then(res => {
+      // last step
+      return this.finishAnimation();
     }).catch(err => {
       console.error(`PxlLogo animation failed: ${err.message}`);
     });
@@ -185,9 +191,14 @@ export default {
   .scene {
     @include pxl-perspective(800px);
     @include pxl-perspective-origin(center center);
-    margin: 0 auto;
+    @include pxl-transition(perspective 1s linear 0.2s);
+    margin: $dim*0.414 auto;
     width: $dim;
     height: $dim;
+
+    &.animated {
+      @include pxl-perspective(2000px);
+    }
   }
 
   .pxlcube {
@@ -197,7 +208,7 @@ export default {
     @include pxl-transform-origin(center);
     width: $dim;
     height: $dim;
-    @include pxl-transform(translate3d($dim/2-$cube-dim/2, $dim/2-$cube-dim/2,$cube-dim/2) rotateX(-45deg) rotateY(-45deg));
+    @include pxl-transform(rotateX(-45deg) rotateY(-45deg));
 
     .cube {
       position: absolute;

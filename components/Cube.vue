@@ -207,7 +207,7 @@ export default {
     text-align: center;
     line-height: $dim;
     color: $text-color;
-    border: 0.02rem solid $gray-800;
+    border: 0.02rem solid $gray-600;
     background-color: $primary-color;
     opacity: $opacity;
   }
