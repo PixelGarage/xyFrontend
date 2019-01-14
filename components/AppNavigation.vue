@@ -24,7 +24,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~/assets/scss/custom.scss";
+/*
+ * AppNavigation rules 
+ * --------------------------------------------------*/
+  @import "~/assets/scss/component.scss";
 
   nav {
     @include pxl-text();

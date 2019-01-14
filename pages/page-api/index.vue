@@ -1,17 +1,17 @@
 <template>
   <AppSection>
-    <logo/>
+    <PxlLogo/>
   </AppSection>
 </template>
 
 
 <script>
 import AppSection from '~/components/AppSection.vue'
-import Logo from '~/components/Logo.vue'
+import PxlLogo from '~/components/PxlLogo.vue'
 
 export default {
   components: {
-    Logo
+    PxlLogo
   },
   middleware: ['server-api-available'],
 }

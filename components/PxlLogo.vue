@@ -23,7 +23,7 @@ export default {
   props: {
     startDelay: {type: Number, default: 1000},
     animDelay: {type: Number, default: 200},
-    animDuration: {type: Number, default: 1500},
+    animDuration: {type: Number, default: 1000},
   },
   data() {
     return {
@@ -97,14 +97,14 @@ export default {
 
 <style lang="scss" scoped>
 /*
- *  PxlLogo section 
+ *  PxlLogo rules 
  * --------------------------------------------------*/
-  @import '~/assets/scss/custom.scss';
+  @import '~/assets/scss/component.scss';
 
   //
   // define animation steps
-  $animDelay: 0.2s;
-  $animDuration: 1.5s;
+  $dim: $cube-dim;
+  $anim-duration: $cube-anim-duration;
   $animation-steps: (
     'step-1': 'front-270',
     'step-2': 'left-90',
@@ -114,27 +114,25 @@ export default {
 
   //
   // local variables
-  $dim: 200px;
-  $cube-dim: 100px;
   $cube-translation: (
-    'ltf': translate3d(0, 0, $cube-dim/2),
-    'rtf': translate3d($cube-dim, 0, $cube-dim/2),
-    'lbf': translate3d(0, $cube-dim, $cube-dim/2),
-    'rbf': translate3d($cube-dim, $cube-dim, $cube-dim/2),
-    'ltb': translate3d(0, 0, -$cube-dim/2),
-    'rtb': translate3d($cube-dim, 0, -$cube-dim/2),
-    'lbb': translate3d(0, $cube-dim, -$cube-dim/2),
-    'rbb': translate3d($cube-dim, $cube-dim, -$cube-dim/2)
+    'ltf': translate3d(0, 0, $dim/2),
+    'rtf': translate3d($dim, 0, $dim/2),
+    'lbf': translate3d(0, $dim, $dim/2),
+    'rbf': translate3d($dim, $dim, $dim/2),
+    'ltb': translate3d(0, 0, -$dim/2),
+    'rtb': translate3d($dim, 0, -$dim/2),
+    'lbb': translate3d(0, $dim, -$dim/2),
+    'rbb': translate3d($dim, $dim, -$dim/2)
   );
   $cube-origin: (
-    'ltf': (bottom right (-$cube-dim/2)),
-    'rtf': (bottom left (-$cube-dim/2)),
-    'lbf': (top right (-$cube-dim/2)),
-    'rbf': (top left (-$cube-dim/2)),
-    'ltb': (bottom right ($cube-dim/2)),
-    'rtb': (bottom left ($cube-dim/2)),
-    'lbb': (top right ($cube-dim/2)),
-    'rbb': (top left ($cube-dim/2))
+    'ltf': (bottom right (-$dim/2)),
+    'rtf': (bottom left (-$dim/2)),
+    'lbf': (top right (-$dim/2)),
+    'rbf': (top left (-$dim/2)),
+    'ltb': (bottom right ($dim/2)),
+    'rtb': (bottom left ($dim/2)),
+    'lbb': (top right ($dim/2)),
+    'rbb': (top left ($dim/2))
   );
   $cube-turns: (
     'front-90':   rotate3d(0, 0, 1, 90deg),
@@ -175,7 +173,7 @@ export default {
           $animTransf: map-get($turns, $turn);
 
           &.#{$step} {
-            animation: #{$animName} $animDuration ease-out forwards;
+            animation: #{$animName} $anim-duration ease-out forwards;
             
             @keyframes #{$animName} {
               to { @include pxl-transform($transl $animTransf); }
@@ -192,12 +190,12 @@ export default {
     @include pxl-perspective(800px);
     @include pxl-perspective-origin(center center);
     @include pxl-transition(perspective 1s linear 0.2s);
-    margin: $dim*0.414 auto;
-    width: $dim;
-    height: $dim;
+    margin: 2*$dim*0.414 auto;
+    width: 2*$dim;
+    height: 2*$dim;
 
     &.animated {
-      @include pxl-perspective(2000px);
+      @include pxl-perspective(8000px);
     }
   }
 
@@ -206,8 +204,8 @@ export default {
     overflow: visible !important;
     @include pxl-transform-style(preserve-3d);
     @include pxl-transform-origin(center);
-    width: $dim;
-    height: $dim;
+    width: 100%;
+    height: 100%;
     @include pxl-transform(rotateX(-45deg) rotateY(-45deg));
 
     .cube {

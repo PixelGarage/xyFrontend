@@ -33,10 +33,13 @@ export default {
 }
 </script>
 
-<style lang="scss" >
-  @import "~/assets/scss/custom.scss";
+<style lang="scss">
+/*
+ * Contact page section 
+ * --------------------------------------------------*/
+  @import '~/assets/scss/page.scss';
 
-  .coords, .directions, .contact {
+  .contact {
     @include pxl-wysiwyg-body();
   }
 </style>

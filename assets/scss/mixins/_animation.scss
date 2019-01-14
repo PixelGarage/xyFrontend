@@ -1,6 +1,4 @@
-/*
- *  Animations and transition mixins
- * --------------------------------------------------*/
+/* Animations and transition mixins */
 
 @mixin pxl-transition($transition...) {
   -webkit-transition: $transition;

@@ -1,0 +1,37 @@
+//
+// load custom SCSS
+@import "custom";
+
+/* --------------------------------------------------
+ *  Nuxt Page specific rules 
+ * --------------------------------------------------*/
+// Variables
+// -------------------------
+$pxl-footer-height: 40px;
+
+//
+// Document
+//
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  padding-bottom: $pxl-footer-height;
+  background-color: $body-bg;
+
+  footer.footer {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    height: $pxl-footer-height;
+  }
+}
+

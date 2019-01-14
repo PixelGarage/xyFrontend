@@ -149,32 +149,42 @@ export default {
 
 <style lang="scss" scoped>
 /*
- *  Cube section 
+ *  Cube rules 
  * --------------------------------------------------*/
-  @import '~/assets/scss/custom.scss';
+  @import '~/assets/scss/component.scss';
 
   //
   // local variables
-  $dim: 100px;
+  $dim: $cube-dim;
   $primary-color: $black;
   $secondary-color: $white;
   $text-color: transparent;
-  $opacity: 1;
+  $opacity: $cube-opacity;
 
   $face-positions: (
-    'face-front': translateZ(50px) rotateY(0deg),
-    'face-back':  translateZ(-50px) rotateY(180deg),
-    'face-left':  translateX(-50px) rotateY(-90deg),
-    'face-right': translateX(50px) rotateY(90deg),
-    'face-top':   translateY(-50px) rotateX(90deg),
-    'face-bottom':translateY(50px) rotateX(-90deg)
+    'face-front': translateZ($dim/2) rotateY(0deg),
+    'face-back':  translateZ(-$dim/2) rotateY(180deg),
+    'face-left':  translateX(-$dim/2) rotateY(-90deg),
+    'face-right': translateX($dim/2) rotateY(90deg),
+    'face-top':   translateY(-$dim/2) rotateX(90deg),
+    'face-bottom':translateY($dim/2) rotateX(-90deg)
+  );
+  $face-colors: (
+    'face-front': $primary-color,
+    'face-back':  $primary-color,
+    'face-left':  $primary-color,
+    'face-right': $primary-color,
+    'face-top':   $primary-color,
+    'face-bottom':$primary-color,
   );
 
   //
   // local mixin
-  @mixin make-cube-faces ($faces: $face-positions) {
+  @mixin make-cube-faces ($faces: $face-positions, $colors: $face-colors) {
     @each $face, $transf in $faces {
       .cube-#{$face} {
+        background-color: map-get($colors, $face);
+
         .cube[#{$face}] & {
           background-color: $secondary-color;
         }
@@ -204,10 +214,10 @@ export default {
     position: absolute;
     width: $dim;
     height: $dim;
-    text-align: center;
     line-height: $dim;
+    text-align: center;
     color: $text-color;
-    border: 0.02rem solid $gray-600;
+    border: 1px solid $gray-800;
     background-color: $primary-color;
     opacity: $opacity;
   }

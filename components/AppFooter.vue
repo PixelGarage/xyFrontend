@@ -16,7 +16,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~/assets/scss/custom.scss";
+/*
+ * AppFooter rules 
+ * --------------------------------------------------*/
+  @import "~/assets/scss/component.scss";
 
   .copy-right {
     padding-top: 10px;

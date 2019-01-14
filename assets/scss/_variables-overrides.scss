@@ -1,5 +1,6 @@
-// Variable overrides
-//
+/* 
+ * Pixelgarage variable overrides
+ * --------------------------------------------------*/
 // Variables should follow the `$component-state-property-size` formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 
@@ -196,4 +197,13 @@ $caret-width:                 .3em;
 $transition-base:             all .2s ease-in-out;
 $transition-fade:             opacity .15s linear;
 $transition-collapse:         height .35s ease;
+
+/* 
+ * global variables
+ * --------------------------------------------------*/
+ //
+ // PxlLogo
+ $cube-dim: 100px;
+ $cube-anim-duration: 1s;
+ $cube-opacity: 1;
 

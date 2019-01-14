@@ -4,8 +4,8 @@ module.exports = {
   mode: 'spa',
 
   /*
-   ** Environment variables that will be shared for the client and server-side.
-   */
+  ** Environment variables that will be shared for the client and server-side.
+  */
   env: {
     // Application title
     title: 'MyApp',
@@ -32,6 +32,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+
   /*
    ** Global CSS
    */
@@ -52,7 +53,8 @@ module.exports = {
       src: '~/plugins/vue-masonry.js',
       ssr: false
     },
- ],
+  ],
+
   /*
   ** Nuxt.js modules
   */
@@ -67,12 +69,14 @@ module.exports = {
     // parse markdown content files
     '@nuxtjs/markdownit',
   ],
+
   /*
   ** Axios module configuration
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
+
   /*
   ** [optional] markdownit options
   ** See https://github.com/markdown-it/markdown-it
@@ -97,7 +101,7 @@ module.exports = {
     //middleware: 'server-api-available'
   },
 
- /*
+  /*
   ** Build configuration
   */
   build: {
@@ -116,17 +120,25 @@ module.exports = {
   },
 
   /*
-   ** Customize the loading progress-bar and SPA spinner
-   */
+  ** Customize the loading progress-bar and SPA spinner
+  */
   loading: {
-      color: '#fd7e14',
-      height: '2px',
-      duration: 5000
-    },
+    color: '#fd7e14',
+    height: '2px',
+    duration: 5000
+  },
 
-    loadingIndicator: {
-      name: 'cube-grid',
-      color: '#fd7e14',
-      background: 'transparent'
-    }
+  loadingIndicator: {
+    name: 'cube-grid',
+    color: '#fd7e14',
+    background: 'transparent'
+  },
+
+  /*
+  ** Page transition
+  */
+  transition: {
+    name: 'fade',
+    mode: ''
+  },
 }

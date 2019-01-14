@@ -17,14 +17,17 @@ export default  {
   data() {
     return {
       fluid: true,
-      fluidMain: false,
+      fluidMain: true,
     }
   }
 }
 </script>
 
 <style lang="scss">
-  @import "~/assets/scss/custom.scss";
+/*
+ * Default Layout rules
+ * --------------------------------------------------*/
+  @import "~/assets/scss/component.scss";
 
   .fade-enter-active,
   .fade-leave-active {
@@ -33,7 +36,7 @@ export default  {
     left: $grid-gutter-width/2;
     right: $grid-gutter-width/2;
     bottom: 0;
-    transition: opacity 1.5s;
+    transition: opacity 10s ease-in-out;
   }
   .fade-enter,
   .fade-leave-to {
