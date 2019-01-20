@@ -8,7 +8,9 @@
 
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav class="w-100 justify-content-end text-center">
+          <b-nav-item to="/test-api">Test-Api</b-nav-item>
           <b-nav-item to="/contact">Kontakt</b-nav-item>
+          <b-nav-item><user-menu/></b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -16,7 +18,12 @@
 </template>
 
 <script>
+import UserMenu from './UserMenu.vue';
+
 export default {
+  components: {
+    UserMenu,
+  },
   props: {
     fluid: Boolean
   }

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Cube from '~/components/Cube.vue';
+import Cube from '~/components/PxlCube.vue';
 
 export default {
   components: {
@@ -206,7 +206,7 @@ export default {
     @include pxl-transform-origin(center);
     width: 100%;
     height: 100%;
-    @include pxl-transform(rotateX(-45deg) rotateY(-45deg));
+    @include pxl-transform(rotateX(-30deg) rotateY(-45deg));
 
     .cube {
       position: absolute;

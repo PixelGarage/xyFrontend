@@ -23,13 +23,13 @@
     "bootstrap-vue": "^2.0.0-beta",
     "cross-env": "^5.2.0",
     "i": "^0.3.6",
-    "jason-parse": "^1.0.0",
+    "jsonapi-parse": "^2.0.0",
     "npm": "^6.5.0",
     "nuxt": "^2.0.0",
+    "nuxt-client-init-module": "^0.1.4",
     "sanitize-html": "^1.20.0",
     "vue-masonry": "^0.11.7",
     "vue-no-ssr": "^1.1.1",
-    "vuejs-logger": "^1.5.3",
     "waterwheel": "^1.3.7"
   },
   "devDependencies": {

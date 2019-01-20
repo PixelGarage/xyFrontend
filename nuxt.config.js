@@ -8,13 +8,13 @@ module.exports = {
   */
   env: {
     // Application title
-    title: 'MyApp',
+    title: 'PxlApp',
 
     // your JSON API server URL :
     jsonApiDevServer: 'http://localhost',
-    jsonApiProdServer: 'http://cms.deinbge.ch', // 'https://live-contentacms.pantheonsite.io',
-    jsonApiPrefix: 'api',
-    clientID: 'cc152d32-fc0f-42e0-84c2-2415eb64f403',
+    jsonApiProdServer: 'http://cms.deinbge.ch',
+    jsonApiPrefix: 'jsonapi',
+    clientID: '6b4d6d2a-6442-4a14-9920-35415462a155',
     clientSecret: 'vu3Cl!3nt'
   },
 
@@ -47,7 +47,6 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    //'~/plugins/vue-logger.js',
     //'~/plugins/fontawesome.js',
     {
       src: '~/plugins/vue-masonry.js',
@@ -63,9 +62,9 @@ module.exports = {
     '@nuxtjs/axios',
     // Doc: https://bootstrap-vue.js.org/docs/
     // add bootstrap with custom css
-    ['bootstrap-vue/nuxt', {
-      css: false
-    }],
+    ['bootstrap-vue/nuxt', { css: false }],
+    // client init
+    'nuxt-client-init-module',
     // parse markdown content files
     '@nuxtjs/markdownit',
   ],
