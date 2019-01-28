@@ -48,10 +48,8 @@ module.exports = {
   */
   plugins: [
     //'~/plugins/fontawesome.js',
-    {
-      src: '~/plugins/vue-masonry.js',
-      ssr: false
-    },
+    { src: '~/plugins/localStorage.js', ssr: false },
+    { src: '~/plugins/vue-masonry.js', ssr: false },
   ],
 
   /*

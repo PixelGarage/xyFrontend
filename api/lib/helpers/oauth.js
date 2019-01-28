@@ -1,12 +1,19 @@
 import methods from './methods';
 import axios from 'axios';
 import qs from 'qs';
+// cookie handling client / server
+const Cookies = process.client ? require('js-cookie') : undefined;
+const CookieParser = process.server ? require('cookieparser') : undefined;
+const cookieName = 'tokenInfo';
 
+/**
+ * OAuth class handling the authentication token.
+ */
 export default class OAuth {
   constructor(basePath, OAuthOptions) {
     this.basePath = basePath;
     this.tokenInformation = Object.assign({}, OAuthOptions);
-    this.tokenInformation.grant_type = 'password'; // eslint-disable-line camelcase
+    this.tokenInformation.grant_type = 'password';
   }
   /**
    * Get an OAuth Token.
@@ -42,6 +49,7 @@ export default class OAuth {
       t.setSeconds(+t.getSeconds() + response.data.expires_in);
       this.tokenExpireTime = t.getTime();
       Object.assign(this.tokenInformation, response.data);
+      this.persistToken();
       return response.data;
     })
     .catch(e => {
@@ -50,5 +58,37 @@ export default class OAuth {
     });
 
     return this.bearerPromise;
+  }
+
+  /**
+   * Saves or updates the token information in a cookie.
+   */
+  persistToken () {
+    // remove an existing cookie, if any
+    // Removing unexisting cookie does not raise any exception nor return any value
+    Cookies.remove(cookieName);
+
+    // persist the new token
+    Cookies.set(cookieName, this.tokenInformation);
+  }
+
+  /**
+   * Loads the persisted token into memory, if any.
+   */
+  retrievePersistedToken () {
+    // read cookie and set token information (persistent token)
+    const tokenInfo = Cookies.getJSON(cookieName);
+    if (tokenInfo) {
+      this.tokenInformation = Object.assign({}, tokenInfo);
+    }
+  }
+
+  /**
+   * Removes the token information from the persistent storage (cookie).
+   */
+  removePersistedToken () {
+    // remove an existing cookie, if any
+    // Removing unexisting cookie does not raise any exception nor return any value
+    Cookies.remove(cookieName);
   }
 };

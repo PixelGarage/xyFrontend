@@ -11,7 +11,7 @@
           <div class="stamp"></div>
           <div v-masonry-tile class="grid-item p-3 rounded" v-for="(recipe, index) in latestRecipes" :key="index">
             <div v-if="recipe.image" class="">
-              <b-img :src="basePath + recipe.image.thumbnail.url" />
+              <b-img :src="basePath + recipe.image.thumbnail.uri.url" />
             </div>
             <div class="text-center">
               <span :class="recipe.difficulty">{{recipe.difficulty}}</span>

@@ -1,25 +1,24 @@
 /**
  * DrupalApi class implements the specific asynchronous API-functionality for the application.
  * 
- * DrupalApi is implemented as singleton. This guarantees that a user stays logged in as long as 
- * he stays on the website and his oauth token can be refreshed.
- *
  * Example usage:
  *   const api = new DrupalApi()
  *   api.init(context);
  */
-import {DrupalApiClient, AuthenticationError} from './DrupalApiClient';
+import { DrupalApiClient, AuthenticationError } from './DrupalApiClient';
 
-class DrupalApiImpl extends DrupalApiClient {
+class DrupalApiInst extends DrupalApiClient {
   /**
    * Creates the singleton instance of the DrupalApi.
    */
+  static instance = false;
+
   constructor () {
     super();
-    if (!DrupalApiImpl.instance) {
-      DrupalApiImpl.instance = this;
+    if (!this.instance) {
+      this.instance = this;
     } 
-    return DrupalApiImpl.instance;
+    return this.instance;
   }
 
   /*
@@ -35,7 +34,7 @@ class DrupalApiImpl extends DrupalApiClient {
       fields: {
         recipes: 'title,difficulty,image',
         images: 'name,thumbnail',
-        files: 'filename,url'
+        files: 'filename,uri'
       }
     };
     return await this.get('recipes', query);
@@ -43,10 +42,11 @@ class DrupalApiImpl extends DrupalApiClient {
 
 }
 
-// holds the singleton instance
-const DrupalApi = new DrupalApiImpl();
-//Object.freeze(DrupalApi);
+// create singleton and protect against change
+const DrupalApi = new DrupalApiInst();
+Object.freeze(DrupalApi);
 
+//
+// exports
 export default DrupalApi;
-
-export {DrupalApi, AuthenticationError};
+export { DrupalApi, AuthenticationError };

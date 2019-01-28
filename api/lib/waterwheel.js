@@ -29,7 +29,7 @@ export default class Waterwheel extends Base {
    * @param {string} options.oauth.scope
    *   The scope of the access request.
    * @param {string} options.timeout
-   *   How long AXIOS should wait before bailing on a request.
+   *   How long AXIOS should wait before bailing on a request (ms).
    * @param {string} options.jsonapiPrefix
    *   If you have overridden the JSON API prefix, specify it here and Waterwheel
    *   will use this over the default of 'jsonapi'.
@@ -47,6 +47,39 @@ export default class Waterwheel extends Base {
 
     if (this.options.resources && Object.keys(this.options.resources).length) {
       this.parseSwagger(this.options.resources, this.request);
+    }
+  }
+
+  /**
+   * Manages the credentials of a user.
+   * If oauthOpt is set with all credentials, the user is logged in with the next Api call.
+   * If oauthOpt is set to null or false, the user is logged out. 
+   *
+   * @param {object} oauthOpt
+   *   The credentials used with each request or null to be reset.
+   * @param {string} oauthOpt.grant_type
+   *   The type of grant you are requesting.
+   * @param {string} oauthOpt.client_id
+   *   The ID of the oauthOpt Client.
+   * @param {string} oauthOpt.client_secret
+   *   The secret set when the Client was created.
+   * @param {string} oauthOpt.username
+   *   The resource owner username.
+   * @param {string} oauthOpt.password
+   *   The resource owner password.
+   * @param {string} oauthOpt.scope
+   *   The scope of the access request.
+  */
+  setCredentials(oauthOpt) {
+    if (oauthOpt) {
+      this.request.options.validation = true;
+      this.oauth.tokenInformation = Object.assign({}, oauthOpt);
+      this.oauth.tokenInformation.grant_type = 'password'; // only 'password' grant type supported yet
+    }
+    else {
+      this.request.options.validation = false;
+      this.oauth.tokenInformation = {};
+      this.oauth.removePersistedToken();
     }
   }
 
@@ -100,7 +133,7 @@ export default class Waterwheel extends Base {
    *   A completed promise after the requested resources were added.
    */
   populateResources(resourcesLocation) {
-    return this.request.issueRequest(methods.get, resourcesLocation, false, {}, false, false)
+    return this.request.issueRequest(methods.get, resourcesLocation, {}, false, false)
       .then(res => {
         this.parseSwagger(res, this.request);
       });

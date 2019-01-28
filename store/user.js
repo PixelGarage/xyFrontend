@@ -1,18 +1,18 @@
 //
 //  Defines the user module in the vuex store.
 //
-import {DrupalApi, AuthenticationError} from '~/api/DrupalApi.js'
+import { DrupalApi, AuthenticationError } from '~/api/DrupalApi.js'
 
 export const state = () => ({
   authenticating: false,
-  user: null,
+  user: false,
   authErrorCode: 0,
   autErrorMessage: '',
 });
 
 export const getters = {
   loggedIn: (state) => {
-    return state.user ? true : false;
+    return state.user;
   },
 
   authenticating: (state) => {
@@ -34,7 +34,7 @@ export const mutations = {
     state.authenticating = true;
     state.autErrorMessage = '';
     state.authErrorCode = 0;
-    console.debug('User login request performed...')
+    console.debug('User login request...')
   },
 
   loginSuccess(state, user) {
@@ -51,7 +51,7 @@ export const mutations = {
     },
 
   logoutSuccess(state) {
-      state.user = null;
+      state.user = false;
       console.debug('User logged out...')
     }
 };
@@ -60,9 +60,10 @@ export const actions = {
   async login({ commit }, {name, password}) {
     commit('loginRequest');
     try {
-        const user = await DrupalApi.login(name, password);
-        commit('loginSuccess', user);
-        return true;
+      const user = await DrupalApi.login(name, password);
+      commit('loginSuccess', user);
+      return true;
+      
     } catch (e) {
       if (e instanceof AuthenticationError) {
         commit('loginError', {errorCode: e.errorCode, errorMessage: e.message});

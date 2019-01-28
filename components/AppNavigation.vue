@@ -7,7 +7,7 @@
       <b-navbar-toggle class="border-0" target="nav_collapse"></b-navbar-toggle>
 
       <b-collapse is-nav id="nav_collapse">
-        <b-navbar-nav class="w-100 justify-content-end text-center">
+        <b-navbar-nav class="w-100 justify-content-end align-items-center text-center">
           <b-nav-item to="/test-api">Test-Api</b-nav-item>
           <b-nav-item to="/contact">Kontakt</b-nav-item>
           <b-nav-item><user-menu/></b-nav-item>

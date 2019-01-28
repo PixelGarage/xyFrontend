@@ -29,7 +29,7 @@ export const mutations = {
 
 export const actions = {
   nuxtClientInit ({ commit }, context) {
-    // init Drupal Api
+    // init DrupalApi
     DrupalApi.init(context);
 
     // set application configuration in store
@@ -37,9 +37,9 @@ export const actions = {
   },
 
   nuxtServerInit ({ commit }, context) {
-    // init Drupal Api
+    // init DrupalApi
     DrupalApi.init(context);
-
+    
     // set application configuration in store
     commit('appConfig', context);
   }

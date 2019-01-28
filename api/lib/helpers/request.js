@@ -23,8 +23,6 @@ export default class Request extends Base {
    *  The HTTP method to be used in the request.
    * @param {string} url
    *  The URL against which to issue the request.
-   * @param {string} XCSRFToken
-   *  An X-CSRF-Token from Drupals REST API.
    * @param {object} additionalHeaders
    *  An object containing additional request header key-value pairs.
    * @param {object} body
@@ -34,7 +32,7 @@ export default class Request extends Base {
    * @returns {Promise}
    *  A Promise that when fulfilled returns a response from the request.
    */
-  issueRequest(method, url, XCSRFToken, additionalHeaders, body, baseOverride) {
+  issueRequest(method, url, additionalHeaders, body, baseOverride) {
     return (this.options.accessCheck && this.options.validation ?
       this.oauth.getToken() :
       Promise.resolve()
@@ -45,7 +43,7 @@ export default class Request extends Base {
         timeout: this.options.timeout,
         url: `${baseOverride || this.options.base}/${url.charAt(0) === '/' ? url.slice(1) : url}`,
         headers: {
-          'X-CSRF-Token': XCSRFToken
+          'X-CSRF-Token': this.csrfToken
         }
       };
 
@@ -55,7 +53,7 @@ export default class Request extends Base {
 
       // If this is a GET request,
       // or we didn't pass a token drop the X-CSRF-Token header.
-      if (method === methods.get || !XCSRFToken) {
+      if (method === methods.get || !this.csrfToken) {
         delete options.headers['X-CSRF-Token'];
       }
 
@@ -80,7 +78,7 @@ export default class Request extends Base {
             error.status = 408;
           }
           else {
-            error.message = err.response ? err.response.data.message : 'Unknown error.';
+            error.message = err.response ? (err.response.data.message ? err.response.data.message : err.response.statusText) : 'Unknown error.';
             error.status = err.response ? err.response.status : 500;
           }
 
@@ -90,17 +88,23 @@ export default class Request extends Base {
   }
   /**
    * Get an X-CSRF-Token from Drupal's REST module.
+   * The token expires after 300 seconds and will be refreshed automatically.
+   * 
    * @return {Promise}
    *  A Promise that when fulfilled returns a response containing the X-CSRF-Token.
    */
   getXCSRFToken() {
-    if (this.csrfToken) {
+    const currentTime = new Date().getTime();
+    if (this.csrfToken && this.hasOwnProperty('csrfExpireTime') && this.csrfExpireTime > currentTime) {
       return Promise.resolve(this.csrfToken);
     }
     return new Promise((resolve, reject) => {
       this.axios({method: 'get', url: `${this.options.base}/rest/session/token`})
         .then(res => {
           this.csrfToken = res.data;
+          let t = new Date();
+          t.setSeconds(+t.getSeconds() + 300);
+          this.csrfExpireTime = t.getTime();
           return resolve(res.data);
         })
         .catch(err => reject(err));
