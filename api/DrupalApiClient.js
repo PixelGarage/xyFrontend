@@ -10,11 +10,6 @@
  */
 import Waterwheel from './lib/waterwheel';
 import JsonapiParse from 'jsonapi-parse';
-// cookie handling client / server
-const Cookies = process.client ? require('js-cookie') : undefined;
-const CookieParser = process.server ? require('cookieparser') : undefined;
-
-
 
 /*
  * AuthenticationError class.
@@ -43,7 +38,7 @@ class DrupalApiClient {
   constructor () {
     this.options = {
       base: false,
-      jsonapiPrefix: process.env.jsonApiPrefix,
+      jsonapiPrefix: process.env.JSON_API_PREFIX,
       validation: false,
       timeout: 3000,
     };
@@ -51,19 +46,20 @@ class DrupalApiClient {
   }
 
   /**
-   * Initializes the Drupal Api instance with the nuxt context on client side.
+   * Initializes the Drupal Api instance with the nuxt context on client and server side.
    * 
    * @param {object} context 
    */
   init(context) {
     // Set the base bath
-    const basePath = context.isDev ? context.env.jsonApiDevServer : context.env.jsonApiProdServer;
+    const basePath = context.isDev ? context.env.JSON_API_DEVSERVER : context.env.JSON_API_PRODSERVER;
     this.waterwheel.setBase(basePath);
     this.waterwheel.oauth.basePath = basePath;
     this.waterwheel.request.setBase(basePath);
 
-    // set persisted token information, if any
-    this.waterwheel.oauth.retrievePersistedToken();
+    // retrieve persisted token information, if any
+    const request = context.req ? context.req : false;
+    this.waterwheel.oauth.retrievePersistedToken(request);
   }
 
   /**
@@ -85,8 +81,8 @@ class DrupalApiClient {
     if (name && password) {
       const oauthOptions = {
         grant_type: 'password',
-        client_id: process.env.clientID,
-        client_secret: process.env.clientSecret,
+        client_id: process.env.CLIENT_ID,
+        client_secret: process.env.CLIENT_SECRET,
         username: name,
         password: password
       };
@@ -116,7 +112,12 @@ class DrupalApiClient {
         // delete password for safety reason (token available) and return user
         delete this.waterwheel.oauth.tokenInformation.password;
       }
-      return user;
+      return {
+        id: user.id,
+        internalId: user.internalId,
+        name: user.name,
+        url: user.user_picture.uri.url,
+      };
     }
   }
 
@@ -126,6 +127,13 @@ class DrupalApiClient {
   logout () {
     // reset the oauth credentials to autonomous.
     this.waterwheel.setCredentials(false);
+  }
+
+  /**
+   * Returns true, if a user is currently logged in, false otherwise.
+   */
+  loggedIn () {
+    return this.waterwheel.oauth.tokenInformation.access_token;
   }
 
   /**

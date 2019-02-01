@@ -12,7 +12,7 @@ export const state = () => ({
 
 export const getters = {
   loggedIn: (state) => {
-    return state.user;
+    return state.user && DrupalApi.loggedIn();
   },
 
   authenticating: (state) => {
@@ -57,7 +57,7 @@ export const mutations = {
 };
 
 export const actions = {
-  async login({ commit }, {name, password}) {
+  async login({ commit }, { name, password }) {
     commit('loginRequest');
     try {
       const user = await DrupalApi.login(name, password);
@@ -66,7 +66,7 @@ export const actions = {
       
     } catch (e) {
       if (e instanceof AuthenticationError) {
-        commit('loginError', {errorCode: e.errorCode, errorMessage: e.message});
+        commit('loginError', { errorCode: e.errorCode, errorMessage: e.message });
       }
       return false;
     }

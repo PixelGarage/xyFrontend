@@ -88,7 +88,7 @@ export default class Request extends Base {
   }
   /**
    * Get an X-CSRF-Token from Drupal's REST module.
-   * The token expires after 300 seconds and will be refreshed automatically.
+   * The token life time is configurable in the CSRF_TOKEN_LIFETIME environment variable.
    * 
    * @return {Promise}
    *  A Promise that when fulfilled returns a response containing the X-CSRF-Token.
@@ -103,7 +103,7 @@ export default class Request extends Base {
         .then(res => {
           this.csrfToken = res.data;
           let t = new Date();
-          t.setSeconds(+t.getSeconds() + 300);
+          t.setSeconds(+t.getSeconds() + process.env.CSRF_TOKEN_LIFETIME);
           this.csrfExpireTime = t.getTime();
           return resolve(res.data);
         })

@@ -2,8 +2,7 @@
 import axios from 'axios';
 
 export default function (context) {
-  const jsonApiServer = context.isDev ? process.env.jsonApiDevServer : process.env.jsonApiProdServer;
-  const apiUrl = jsonApiServer + '/' + process.env.jsonApiPrefix;
+  const apiUrl = context.store.state.basePath + '/' + context.env.JSON_API_PREFIX;
   console.log(apiUrl);
   
   return axios.get(apiUrl).catch(e => {

@@ -9,10 +9,13 @@ import { DrupalApiClient, AuthenticationError } from './DrupalApiClient';
 
 class DrupalApiInst extends DrupalApiClient {
   /**
-   * Creates the singleton instance of the DrupalApi.
+   * Holds the one and only instance.
    */
   static instance = false;
 
+  /**
+   * Creates the singleton instance of the DrupalApi.
+   */
   constructor () {
     super();
     if (!this.instance) {
@@ -22,7 +25,7 @@ class DrupalApiInst extends DrupalApiClient {
   }
 
   /*
-   * Define API Interface methods here
+   * Define Drupal API methods here
    */
   async findAllLatestRecipes (limit = 4, offset = 0) {
     const query = {

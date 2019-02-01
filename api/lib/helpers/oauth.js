@@ -1,13 +1,14 @@
 import methods from './methods';
 import axios from 'axios';
 import qs from 'qs';
+
 // cookie handling client / server
 const Cookies = process.client ? require('js-cookie') : undefined;
 const CookieParser = process.server ? require('cookieparser') : undefined;
-const cookieName = 'tokenInfo';
 
 /**
- * OAuth class handling the authentication token.
+ * OAuth class handling the authentication token
+ * in a stateful manner (persistence).
  */
 export default class OAuth {
   constructor(basePath, OAuthOptions) {
@@ -54,6 +55,7 @@ export default class OAuth {
     })
     .catch(e => {
       delete this.bearerPromise;
+      this.removePersistedToken();
       return Promise.reject(e);
     });
 
@@ -62,24 +64,55 @@ export default class OAuth {
 
   /**
    * Saves or updates the token information in a cookie.
+   * The lifetime of the cookie is set via the environment variable 'authTimeout'.
    */
   persistToken () {
     // remove an existing cookie, if any
     // Removing unexisting cookie does not raise any exception nor return any value
-    Cookies.remove(cookieName);
+    Cookies.remove(process.env.AUTH_COOKIE_NAME);
 
-    // persist the new token
-    Cookies.set(cookieName, this.tokenInformation);
+    // persist the sparse tokenInfo in cookie (only access_token, refresh_token, grant_type)
+    let tokenInfo = Object.assign({}, this.tokenInformation);
+    delete tokenInfo.client_id;
+    delete tokenInfo.client_secret;
+    delete tokenInfo.username;
+    delete tokenInfo.password;
+    // restrict lifetime of cookie when user is inactive
+    const inTimeoutSeconds = process.env.AUTH_LIFETIME / 86400;
+    Cookies.set(process.env.AUTH_COOKIE_NAME, tokenInfo, { expires: inTimeoutSeconds});
   }
 
   /**
-   * Loads the persisted token into memory, if any.
+   * Loads the persisted token universally into memory, if any.
+   * 
+   * @param {object} req 
+   *  The request object, if the method is called on the server, null for client side.
    */
-  retrievePersistedToken () {
-    // read cookie and set token information (persistent token)
-    const tokenInfo = Cookies.getJSON(cookieName);
+  retrievePersistedToken (req) {
+    let tokenInfo = false;
+
+    if (process.client) {
+      // read client side cookie (persisted token)
+      tokenInfo = Cookies.getJSON(process.env.AUTH_COOKIE_NAME);
+    }
+    else if (process.server && req && req.headers.cookie) {
+      // retrieve cookie from request and read token information
+      const parsed = CookieParser.parse(req.headers.cookie)
+      try {
+        tokenInfo = JSON.parse(parsed[process.env.AUTH_COOKIE_NAME])
+      } 
+      catch (err) {
+        // No valid cookie found
+        tokenInfo = false;
+      }
+    }
+    // set the retrieved token, if any
     if (tokenInfo) {
-      this.tokenInformation = Object.assign({}, tokenInfo);
+      this.tokenInformation = { client_id: process.env.CLIENT_ID, client_secret: process.env.CLIENT_SECRET };
+      this.tokenInformation = Object.assign(this.tokenInformation, tokenInfo);
+    }
+    else {
+      this.tokenInformation = {};
     }
   }
 
@@ -89,6 +122,6 @@ export default class OAuth {
   removePersistedToken () {
     // remove an existing cookie, if any
     // Removing unexisting cookie does not raise any exception nor return any value
-    Cookies.remove(cookieName);
+    Cookies.remove(process.env.AUTH_COOKIE_NAME);
   }
 };

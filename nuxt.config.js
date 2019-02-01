@@ -1,21 +1,17 @@
-const pkg = require('./package')
+// load package file and configure .env file
+const pkg = require('./package');
+require('dotenv').config();
 
 module.exports = {
-  mode: 'spa',
+  mode: 'spa', // spa, universal
 
   /*
-  ** Environment variables that will be shared for the client and server-side.
-  */
-  env: {
-    // Application title
-    title: 'PxlApp',
-
-    // your JSON API server URL :
-    jsonApiDevServer: 'http://localhost',
-    jsonApiProdServer: 'http://cms.deinbge.ch',
-    jsonApiPrefix: 'jsonapi',
-    clientID: '6b4d6d2a-6442-4a14-9920-35415462a155',
-    clientSecret: 'vu3Cl!3nt'
+  **  Server configuration
+   */
+  server: {
+    port: 3000, // default: 3000
+    host: 'localhost', // default: localhost,
+    timing: false
   },
 
   /*
@@ -47,8 +43,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    //'~/plugins/fontawesome.js',
-    { src: '~/plugins/localStorage.js', ssr: false },
+    '~/plugins/fontawesome.js',
+    { src: '~/plugins/persistedStorage.js', ssr: false },
     { src: '~/plugins/vue-masonry.js', ssr: false },
   ],
 
@@ -58,6 +54,8 @@ module.exports = {
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
+    // defines environment variables in file
+    ['@nuxtjs/dotenv', { filename: '.env'}],
     // Doc: https://bootstrap-vue.js.org/docs/
     // add bootstrap with custom css
     ['bootstrap-vue/nuxt', { css: false }],
@@ -75,7 +73,7 @@ module.exports = {
   },
 
   /*
-  ** [optional] markdownit options
+  ** Markdownit module configuration
   ** See https://github.com/markdown-it/markdown-it
   */
   markdownit: {
@@ -135,7 +133,7 @@ module.exports = {
   ** Page transition
   */
   transition: {
-    name: 'fade',
+    name: 'fading',
     mode: ''
   },
 }

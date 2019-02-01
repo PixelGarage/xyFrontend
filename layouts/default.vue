@@ -29,21 +29,21 @@ export default  {
  * --------------------------------------------------*/
   @import "~/assets/scss/component.scss";
 
-  .fade-enter-active,
-  .fade-leave-active {
+  .fading-enter-active,
+  .fading-leave-active {
     position: absolute;
     top: 0;
     left: $grid-gutter-width/2;
     right: $grid-gutter-width/2;
     bottom: 0;
-    transition: opacity 10s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
   }
-  .fade-enter,
-  .fade-leave-to {
+  .fading-enter,
+  .fading-leave-to {
     opacity: 0;
   }
-  .fade-enter-to,
-  .fade-leave {
+  .fading-enter-to,
+  .fading-leave {
     opacity: 1;
   }
 
