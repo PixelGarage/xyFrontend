@@ -7,12 +7,12 @@ export const state = () => ({
   authenticating: false,
   user: false,
   authErrorCode: 0,
-  autErrorMessage: '',
+  authErrorMessage: '',
 });
 
 export const getters = {
   loggedIn: (state) => {
-    return state.user && DrupalApi.loggedIn();
+    return state.user;
   },
 
   authenticating: (state) => {
@@ -24,7 +24,7 @@ export const getters = {
   },
 
   authErrorMessage: (state) => {
-      return state.autErrorMessage;
+      return state.authErrorMessage;
   },
 
 };
@@ -32,7 +32,7 @@ export const getters = {
 export const mutations = {
   loginRequest(state) {
     state.authenticating = true;
-    state.autErrorMessage = '';
+    state.authErrorMessage = '';
     state.authErrorCode = 0;
     console.debug('User login request...')
   },
@@ -46,7 +46,7 @@ export const mutations = {
   loginError(state, {errorCode, errorMessage}) {
       state.authenticating = false;
       state.authErrorCode = errorCode;
-      state.autErrorMessage = errorMessage;
+      state.authErrorMessage = errorMessage;
       console.debug('User login error occurred: %s', errorMessage)
     },
 
@@ -57,6 +57,9 @@ export const mutations = {
 };
 
 export const actions = {
+  /**
+   * Login of a user and handling of the user state.
+   */
   async login({ commit }, { name, password }) {
     commit('loginRequest');
     try {
@@ -68,10 +71,25 @@ export const actions = {
       if (e instanceof AuthenticationError) {
         commit('loginError', { errorCode: e.errorCode, errorMessage: e.message });
       }
+      else {
+        commit('loginError', { errorCode: 400, errorMessage: e.message });
+      }
       return false;
     }
   },
 
+  /** 
+   * Initialisation of login state (after refresh).
+  */
+  init ({ commit }, context) {
+    // init DrupalApi and user store
+    DrupalApi.init(context);
+    if (!DrupalApi.loggedIn()) commit('logoutSuccess');
+  },
+
+  /**
+   * Logout of user.
+   */
   logout({ commit }) {
     DrupalApi.logout();
     commit('logoutSuccess');

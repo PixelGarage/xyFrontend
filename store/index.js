@@ -31,9 +31,9 @@ export const actions = {
   /**
    * Initialises the client with state. 
    */
-  nuxtClientInit ({ commit }, context) {
-    // init DrupalApi
-    DrupalApi.init(context);
+  nuxtClientInit ({ commit, dispatch }, context) {
+    // init user store
+    dispatch('user/init', context);
 
     // set application configuration in store
     commit('appConfig', context);
@@ -42,10 +42,10 @@ export const actions = {
   /** 
    * Initialises the server with state.
    */
-  nuxtServerInit ({ commit }, context) {
-    // init DrupalApi
-    DrupalApi.init(context);
-    
+  nuxtServerInit ({ commit, dispatch  }, context) {
+    // init user store
+    dispatch('user/init', context);
+  
     // set application configuration in store
     commit('appConfig', context);
   }

@@ -67,7 +67,7 @@ export default {
       return this.loggedIn ? this.$store.state.user.user.name : 'Login';
     },
     userImageUrl: function () {
-      return this.$store.state.user.user ? this.$store.state.basePath + this.$store.state.user.user.url : '';
+      return this.$store.state.user.user.url ? this.$store.state.basePath + this.$store.state.user.user.url : '/default.png';
     },
   },
   methods: {

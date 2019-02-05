@@ -5,7 +5,7 @@ import qs from 'qs';
 export default class JSONAPI {
   constructor(options, request) {
     this.request = request;
-    this.jsonapiPrefix = options.JSON_API_PREFIX || 'jsonapi';
+    this.jsonapiPrefix = options.jsonapiPrefix || 'jsonapi';
   }
 
   /**

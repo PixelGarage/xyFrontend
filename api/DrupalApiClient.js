@@ -93,7 +93,7 @@ class DrupalApiClient {
       let user = null;
       try {
         const queryParams = {
-          include: 'user_picture',
+          //include: 'user_picture',
           filter: {
             user: {
               path: 'name',
@@ -116,7 +116,7 @@ class DrupalApiClient {
         id: user.id,
         internalId: user.internalId,
         name: user.name,
-        url: user.user_picture.uri.url,
+        url: user.user_picture.uri ? user.user_picture.uri.url : false,
       };
     }
   }
@@ -133,7 +133,7 @@ class DrupalApiClient {
    * Returns true, if a user is currently logged in, false otherwise.
    */
   loggedIn () {
-    return this.waterwheel.oauth.tokenInformation.access_token;
+    return this.waterwheel.oauth.tokenInformation.access_token ? true : false;
   }
 
   /**
