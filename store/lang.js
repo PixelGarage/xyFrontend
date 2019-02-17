@@ -4,7 +4,7 @@
 
 export const state = () => ({
   locales: ['de', 'en', 'fr'],
-  locale: 'de'
+  locale: 'de',
 })
 
 export const getters = {

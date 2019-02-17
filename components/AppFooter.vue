@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <b-container v-bind:fluid="fluid">
-      <div class="d-flex justify-content-end align-items-center mx-3 border-top copy-right">© 2018+ Pixelgarage. All rights reserved | <b-link class="px-1" to="impressum">Impressum</b-link></div>
+      <div class="d-flex justify-content-end align-items-center mx-3 border-top copy-right">{{ $t('footer.copy-rights') }} | <b-link class="px-1" to="impressum">{{ $t('footer.impressum') }}</b-link></div>
     </b-container>
   </footer>
 

@@ -10,18 +10,19 @@
     "fr": "fr",
     "fr-long": "Französisch"
   },
+  "footer": {
+    "impressum": "Impressum",
+    "copy-rights": "© 2018+ Pixelgarage. Alle Rechte vorbehalten"
+  },
   "home": {
     "title": "Pixelgarage Frontend Vorlage"
   },
   "contact": {
     "invitation": "Wir freuen uns über eine Kontaktaufnahme per Mail, Telefon oder auf einen gemeinsamen Kaffee oder Tee an der Binzstrasse 12."
   },
-  "impressum": {
-
-  },
   "api-test": {
     "title": "Gerichte",
-    "subtitle": "Entdecke Gerichte für jede Art von Anlass, Zutaten und Könnerstufe."
+    "subtitle": "Entdecke Gerichte für jede Art von Anlass, Zutat und Fertigkeit."
   },
   "server-unreachable": {
     "title": "Das Server-API kann zur Zeit nicht erreicht werden."

@@ -4,9 +4,9 @@
       <b-link id="lang_menu">{{locale}}</b-link>
       <b-popover target="lang_menu" placement="bottomcenter" triggers="focus">
           <b-nav vertical justified>
-            <b-nav-item :to="routePath('de')">{{ $t('menu.de-long')}}</b-nav-item>
-            <b-nav-item :to="routePath('en')">{{ $t('menu.en-long')}}</b-nav-item>
-            <b-nav-item :to="routePath('fr')">{{ $t('menu.fr-long')}}</b-nav-item>
+            <b-nav-item v-if="locale !== 'de'" :to="langRoutePath('de')">{{ $t('menu.de-long')}}</b-nav-item>
+            <b-nav-item v-if="locale !== 'en'" :to="langRoutePath('en')">{{ $t('menu.en-long')}}</b-nav-item>
+            <b-nav-item v-if="locale !== 'fr'" :to="langRoutePath('fr')">{{ $t('menu.fr-long')}}</b-nav-item>
           </b-nav>
       </b-popover>
     </no-ssr>
@@ -27,8 +27,11 @@ export default {
     ]),
   },
   methods: {
-    routePath: function (locale) {
-      return locale === this.$store.state.lang.fallbackLocale ? this.$route.fullPath : `/${locale}${this.$route.fullPath.replace(/^\/[^\/]+/, '')}`;
+    langRoutePath: function (lang) {
+      const currentPath = (this.locale === this.$i18n.fallbackLocale) ? 
+        this.$route.fullPath : 
+        this.$route.fullPath.replace(/^\/[^\/]+/, ''); // strip lang part of path
+      return (lang === this.$i18n.fallbackLocale) ? currentPath : `/${lang}${currentPath}`;
     },
   }
 }

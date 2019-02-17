@@ -10,14 +10,15 @@
     "fr": "fr",
     "fr-long": "French"
   },
+  "footer": {
+    "impressum": "Impressum",
+    "copy-rights": "© 2018+ Pixelgarage. All rights reserved"
+  },
   "home": {
     "title": "Pixelgarage Frontend Template"
   },
   "contact": {
-    "invitation": "We would like to hear from you by mail, phone or just drop over at the Pixelgarage Lab for a chat with coffee or tea."
-  },
-  "impressum": {
-
+    "invitation": "We look forward to getting in touch with you by mail, telephone or for a cup of coffee or tea together at Binzstrasse 12."
   },
   "api-test": {
     "title": "Recipes",

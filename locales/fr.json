@@ -10,21 +10,22 @@
     "fr": "fr",
     "fr-long": "Français"
   },
+  "footer": {
+    "impressum": "Mentions légales",
+    "copy-rights": "© 2018+ Pixelgarage. Tous droits réservés"
+  },
   "home": {
     "title": "Pixelgarage Frontend Schablone"
   },
   "contact": {
-    "invitation": "Wir freuen uns über eine Kontaktaufnahme per Mail, Telefon oder auf einen gemeinsamen Kaffee oder Tee an der Binzstrasse 12."
-  },
-  "impressum": {
-
+    "invitation": "Nous nous réjouissons de prendre contact avec vous par courrier, téléphone ou pour une tasse de café ou de thé à la Binzstrasse 12."
   },
   "api-test": {
-    "title": "Recipes",
-    "subtitle": "Explore recipes across every type of occasion, ingredient and skill level."
+    "title": "Recettes",
+    "subtitle": "Explorez des recettes pour chaque type d'occasion, chaque ingrédient et chaque niveau de compétence."
   },
   "server-unreachable": {
-    "title": "Der Server-API kann zur Zeit nicht erreicht werden."
+    "title": "Pour le moment, l'API serveur n'est pas accessible."
   }
 
 }
