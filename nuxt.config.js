@@ -44,6 +44,7 @@ module.exports = {
   */
   plugins: [
     '~/plugins/fontawesome.js',
+    '~/plugins/i18n.js',
     { src: '~/plugins/persistedStorage.js', ssr: false },
     { src: '~/plugins/vue-masonry.js', ssr: false },
   ],
@@ -56,8 +57,7 @@ module.exports = {
     '@nuxtjs/axios',
     // defines environment variables in file
     ['@nuxtjs/dotenv', { filename: '.env'}],
-    // Doc: https://bootstrap-vue.js.org/docs/
-    // add bootstrap with custom css
+    // Doc: https://bootstrap-vue.js.org/docs/; add bootstrap with custom css
     ['bootstrap-vue/nuxt', { css: false }],
     // client init
     'nuxt-client-init-module',
@@ -91,9 +91,21 @@ module.exports = {
     linkActiveClass: 'active',
     linkExactActiveClass: 'exact-active',
 
-    // check globally if API server is up, to avoid ugly errors pages
-    // when its down or when there is no internet connection
-    //middleware: 'server-api-available'
+    // handles routes in different languages
+    middleware: 'i18n'
+  },
+
+  /*
+  ** Set up parameter values for every dynamic route in static mode.
+  */
+  generate: {
+    routes: [
+      '/', '/en', '/fr', 
+      '/contact', '/en/contact', '/fr/contact',
+      '/impressum', '/en/impressum', '/fr/impressum',
+      '/api-test', '/en/api-test', '/fr/api-test',
+      '/server-unreachable', '/en/server-unreachable', '/fr/server-unreachable',
+    ]
   },
 
   /*

@@ -1,0 +1,30 @@
+{
+  "menu": {
+    "contact": "Contact",
+    "api-test": "API-Test",
+    "impressum": "Impressum",
+    "de": "de",
+    "de-long": "Allemand",
+    "en": "en",
+    "en-long": "Anglais",
+    "fr": "fr",
+    "fr-long": "Français"
+  },
+  "home": {
+    "title": "Pixelgarage Frontend Schablone"
+  },
+  "contact": {
+    "invitation": "Wir freuen uns über eine Kontaktaufnahme per Mail, Telefon oder auf einen gemeinsamen Kaffee oder Tee an der Binzstrasse 12."
+  },
+  "impressum": {
+
+  },
+  "api-test": {
+    "title": "Recipes",
+    "subtitle": "Explore recipes across every type of occasion, ingredient and skill level."
+  },
+  "server-unreachable": {
+    "title": "Der Server-API kann zur Zeit nicht erreicht werden."
+  }
+
+}

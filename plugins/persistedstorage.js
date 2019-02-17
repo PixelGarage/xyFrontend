@@ -6,7 +6,7 @@ import createPersistedState from 'vuex-persistedstate'
 export default ({store}) => {
   createPersistedState({
     key: 'vuex',
-    paths: ['user'],
+    paths: ['lang', 'user'],
     storage: window.sessionStorage,
   })(store);
 }

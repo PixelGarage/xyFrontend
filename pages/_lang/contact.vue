@@ -4,7 +4,10 @@
       <b-col cols="12" md="6">
         <b-img src="/activism.jpg" class="d-block pb-3 w-100 rounded"></b-img>
       </b-col>
-      <b-col cols="12" md="6" class="contact align-self-sm-center pb-3" v-html="contact"></b-col>
+      <b-col cols="12" md="6" class="contact align-self-sm-center pb-3">
+        <div v-html="contact"></div>
+        <div>{{ $t('contact.invitation') }}</div>
+      </b-col>
     </b-row>
   </AppSection>
 </template>

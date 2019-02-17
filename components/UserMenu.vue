@@ -1,11 +1,11 @@
 <template>
   <span>
-    <b-link id="userMenuLink">
-      <b-img class="user-img" :src="userImageUrl" v-if="loggedIn"></b-img>
-      <span>{{userMenuLabel}}</span>
-    </b-link>
     <no-ssr>
-      <b-popover target="userMenuLink" placement="bottomcenter" triggers="focus">
+      <b-link id="user_menu">
+        <b-img class="user-img" :src="userImageUrl" v-if="loggedIn"></b-img>
+        <span>{{userMenuLabel}}</span>
+      </b-link>
+      <b-popover target="user_menu" placement="bottomcenter" triggers="focus">
         <!-- A progress icon is visible when authenticating -->
         <div v-if="authenticating" class="d-flex justify-content-center align-items-center">
           <font-awesome-icon class="d-block m-3" size="3x" :icon="spinnerIcon" spin></font-awesome-icon>
@@ -88,6 +88,10 @@ export default {
 </script>
 
 <style lang="scss">
+  #user_menu {
+    padding: 0.5rem;
+  }
+
   hr {
     margin: 0;
   }

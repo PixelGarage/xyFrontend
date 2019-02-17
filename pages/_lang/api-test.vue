@@ -1,17 +1,17 @@
 <template>
-  <PageApi v-bind="{latestRecipes}" />
+  <PageApiTest v-bind="{latestRecipes}" />
 </template>
 
 <script>
-import PageApi from '~/components/PageTestApi'
+import PageApiTest from '~/components/PageApiTest'
 import DrupalApi from '~/api/DrupalApi'
 
 export default {
   transition: 'slide-left',
-  components: { PageApi },
+  components: { PageApiTest },
   middleware: ['server-api-available'],
   async asyncData (context) {
-    return Promise.all([DrupalApi.findAllLatestRecipes(4)]).then(
+    return Promise.all([DrupalApi.findAllLatestRecipes(6)]).then(
       values => {
         return {
           latestRecipes: values[0],

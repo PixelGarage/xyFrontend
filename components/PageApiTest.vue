@@ -2,8 +2,8 @@
   <div class="home">
   
     <AppSection v-if="latestRecipes" class="home-recipes">
-      <h3 class="title text-center">Recipes</h3>
-      <h4 class="title text-center">Explore recipes across every type of occasion, ingredient and skill level</h4>
+      <h3 class="title text-center">{{ $t('api-test.title') }}</h3>
+      <h4 class="title text-center">{{ $t('api-test.subtitle')}}</h4>
       <no-ssr>
         <div v-masonry item-selector=".grid-item" column-width=".grid-sizer" gutter=".gutter-sizer" transition-duration="0.5s" class="grid-container">
           <div class="grid-sizer"></div>
@@ -36,7 +36,7 @@ export default {
   props: {
     latestRecipes: { type: Array, default: [] },
   },
-  data() {
+  data () {
     return {
       basePath: this.$store.state.basePath,
     }
@@ -60,7 +60,8 @@ export default {
   .grid-sizer, .grid-item {
     margin: 0 0 $masonry-gutter-width;
     width: 100%;
-    background-color: $orange;
+    background-color: white;
+    border: 5px solid black;
 
     @include media-breakpoint-up(sm) {
       width: 50% - $masonry-gutter-width/2;
@@ -72,6 +73,10 @@ export default {
 
   .grid-item {
     @include pxl-wysiwyg-body();
+
+    img {
+      filter: sepia(1) brightness(1.1) grayscale(0.7); 
+    }
 
     em {
       margin-bottom: 0.5rem;

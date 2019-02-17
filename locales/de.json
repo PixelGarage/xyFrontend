@@ -1,0 +1,29 @@
+{
+  "menu": {
+    "contact": "Kontakt",
+    "api-test": "API-Test",
+    "impressum": "Impressum",
+    "de": "de",
+    "de-long": "Deutsch",
+    "en": "en",
+    "en-long": "Englisch",
+    "fr": "fr",
+    "fr-long": "Französisch"
+  },
+  "home": {
+    "title": "Pixelgarage Frontend Vorlage"
+  },
+  "contact": {
+    "invitation": "Wir freuen uns über eine Kontaktaufnahme per Mail, Telefon oder auf einen gemeinsamen Kaffee oder Tee an der Binzstrasse 12."
+  },
+  "impressum": {
+
+  },
+  "api-test": {
+    "title": "Gerichte",
+    "subtitle": "Entdecke Gerichte für jede Art von Anlass, Zutaten und Könnerstufe."
+  },
+  "server-unreachable": {
+    "title": "Das Server-API kann zur Zeit nicht erreicht werden."
+  }
+}

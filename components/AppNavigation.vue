@@ -8,9 +8,10 @@
 
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav class="w-100 justify-content-end align-items-center text-center">
-          <b-nav-item to="/test-api">Test-Api</b-nav-item>
-          <b-nav-item to="/contact">Kontakt</b-nav-item>
-          <b-nav-item><user-menu/></b-nav-item>
+          <b-nav-item :to="$i18n.path('api-test')">{{ $t('menu.api-test') }}</b-nav-item>
+          <b-nav-item :to="$i18n.path('contact')">{{ $t('menu.contact') }}</b-nav-item>
+          <UserMenu/>
+          <LangMenu/>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -19,10 +20,11 @@
 
 <script>
 import UserMenu from './UserMenu.vue';
+import LangMenu from './LangMenu.vue';
 
 export default {
   components: {
-    UserMenu,
+    UserMenu, LangMenu,
   },
   props: {
     fluid: Boolean

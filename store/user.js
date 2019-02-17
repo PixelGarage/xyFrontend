@@ -34,26 +34,26 @@ export const mutations = {
     state.authenticating = true;
     state.authErrorMessage = '';
     state.authErrorCode = 0;
-    console.debug('User login request...')
+    console.debug('User login request...');
   },
 
   loginSuccess(state, user) {
       state.user = user;
       state.authenticating = false;
-      console.debug('User login successful...')
-    },
+      console.debug('User login successful...');
+  },
 
   loginError(state, {errorCode, errorMessage}) {
       state.authenticating = false;
       state.authErrorCode = errorCode;
       state.authErrorMessage = errorMessage;
-      console.debug('User login error occurred: %s', errorMessage)
-    },
+      console.debug('User login error occurred: %s', errorMessage);
+  },
 
   logoutSuccess(state) {
       state.user = false;
-      console.debug('User logged out...')
-    }
+      console.debug('User logged out...');
+  }
 };
 
 export const actions = {

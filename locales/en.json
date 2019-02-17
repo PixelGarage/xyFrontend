@@ -1,0 +1,30 @@
+{
+  "menu": {
+    "contact": "Contact",
+    "api-test": "API-Test",
+    "impressum": "Impressum",
+    "de": "de",
+    "de-long": "German",
+    "en": "en",
+    "en-long": "English",
+    "fr": "fr",
+    "fr-long": "French"
+  },
+  "home": {
+    "title": "Pixelgarage Frontend Template"
+  },
+  "contact": {
+    "invitation": "We would like to hear from you by mail, phone or just drop over at the Pixelgarage Lab for a chat with coffee or tea."
+  },
+  "impressum": {
+
+  },
+  "api-test": {
+    "title": "Recipes",
+    "subtitle": "Explore recipes across every type of occasion, ingredient and skill level."
+  },
+  "server-unreachable": {
+    "title": "Sorry, we can't reach the server API for now."
+  }
+
+}
