@@ -5,7 +5,7 @@
         <pxl-logo/>
       </b-col>
       <b-col class="my-4 align-self-center"  cols="12" md="6">
-        <div class="main-title text-center text-md-left">{{ $t('home.title')}}</div>
+        <div class="main-title text-center text-md-left">{{ $t('page.home.intro')}}</div>
       </b-col>
     </b-row>
   </AppSection>
@@ -16,9 +16,18 @@ import AppSection from '~/components/AppSection.vue'
 import PxlLogo from '~/components/PxlLogo.vue'
 
 export default {
+  layout: 'default',
   components: {
     AppSection, PxlLogo,
-  }
+  },
+  head () {
+    return {
+      title: this.$t('page.home.title'),
+      titleTemplate: `%s | ${process.env.APP_TITLE}`,
+      meta: [ { hid: 'description', name: 'description', content: this.$t('page.home.meta.descr') } ]
+    }
+  },
+
 }
 </script>
 
@@ -26,6 +35,8 @@ export default {
 /*
  *  Main page section 
  * --------------------------------------------------*/
+  $pxl-footer-height: 350px;
+  $pxl-footer-height-md: 150px;
   @import '~/assets/scss/page.scss';
 
   .main {

@@ -1,31 +1,70 @@
 {
-  "menu": {
-    "contact": "Contact",
-    "api-test": "API-Test",
-    "impressum": "Impressum",
-    "de": "de",
-    "de-long": "Allemand",
-    "en": "en",
-    "en-long": "Anglais",
-    "fr": "fr",
-    "fr-long": "Français"
+  "header": {
+    "menu": {
+      "api-test": "Api-Test",
+      "contact": "Contact"
+    }
   },
   "footer": {
     "impressum": "Mentions légales",
-    "copy-rights": "© 2018+ Pixelgarage. Tous droits réservés"
+    "data-protection": "Protection des données",
+    "newsletter": "Newsletter",
+    "copy-rights": "© 2018+ Association Dein Grundeinkommen. Tous droits réservés",
+    "copy-rights-short": "© 2018+ Dein Grundeinkommen."
   },
-  "home": {
-    "title": "Pixelgarage Frontend Schablone"
+  "comp": {
+    "lang-menu": {
+      "title": "fr",
+      "de-long": "Allemand",
+      "en-long": "Anglais",
+      "fr-long": "Français"
+    },
+    "user-menu": {
+      "auth": "authentification...",
+      "login": "Accès",
+      "logout": "Sortie",
+      "cockpit": "Cockpit",
+      "errMsg": "Une erreur s'est produite lors de la connexion: {err}"
+    },
+    "api-test": {
+      "title": "Recettes",
+      "subtitle": "Découvrez des recettes pour toutes les occasions, tous les ingrédients et toutes les compétences."
+    }
   },
-  "contact": {
-    "invitation": "Nous nous réjouissons de prendre contact avec vous par courrier, téléphone ou pour une tasse de café ou de thé à la Binzstrasse 12."
-  },
-  "api-test": {
-    "title": "Recettes",
-    "subtitle": "Explorez des recettes pour chaque type d'occasion, chaque ingrédient et chaque niveau de compétence."
-  },
-  "server-unreachable": {
-    "title": "Pour le moment, l'API serveur n'est pas accessible."
-  }
+  "page": {
+    "home": {
+      "title": "Start",
+      "intro": "Pixelgarage Frontend Schablone",
+      "meta": {
+        "descr": "bGeroi revenu de base application."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "meta": {
+        "descr": "Les coordonnées de revenu de base application 'bGeroi'."
+      },
+      "invitation": "Nous nous réjouissons de prendre contact avec vous par courrier, téléphone ou pour une tasse de café ou de thé à la Binzstrasse 12."
+    },
+    "impressum": {
+      "title": "Impressum",
+      "meta": {
+        "descr": "Mentions légales de de revenu de base application 'bGeroi'."
+      }
+    },
+    "data-protection": {
+      "title": "Protection des données",
+      "meta": {
+        "descr": "Politique de confidentialité de l'application revenu de base bGeroi."
+      }
+    },
+    "server-unreachable": {
+      "title": "l'API inaccessible",
+      "message": "Pour le moment, l'API serveur n'est pas accessible.",
+      "meta": {
+        "descr": "La page d'erreur, l'API serveur n'est pas accessible."
+      }
+    }
 
+  }
 }

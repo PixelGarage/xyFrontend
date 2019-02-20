@@ -1,31 +1,70 @@
 {
-  "menu": {
-    "contact": "Contact",
-    "api-test": "API-Test",
-    "impressum": "Impressum",
-    "de": "de",
-    "de-long": "German",
-    "en": "en",
-    "en-long": "English",
-    "fr": "fr",
-    "fr-long": "French"
+  "header": {
+    "menu": {
+      "api-test": "Api-Test",
+      "contact": "Contact"
+    }
   },
   "footer": {
     "impressum": "Impressum",
-    "copy-rights": "© 2018+ Pixelgarage. All rights reserved"
+    "data-protection": "Data protection",
+    "newsletter": "Newsletter",
+    "copy-rights": "© 2018+ Verein Dein Grundeinkommen. All rights reserved",
+    "copy-rights-short": "© 2018+ Dein Grundeinkommen."
   },
-  "home": {
-    "title": "Pixelgarage Frontend Template"
+  "comp": {
+    "lang-menu": {
+      "title": "en",
+      "de-long": "German",
+      "en-long": "English",
+      "fr-long": "French"
+    },
+    "user-menu": {
+      "auth": "authenticating...",
+      "login": "Login",
+      "logout": "Logout",
+      "cockpit": "Cockpit",
+      "errMsg": "An error occurred during login: {err}"
+    },
+    "api-test": {
+      "title": "Recipes",
+      "subtitle": "Explore recipes for every occasion, ingredient and skill."
+    }
   },
-  "contact": {
-    "invitation": "We look forward to getting in touch with you by mail, telephone or for a cup of coffee or tea together at Binzstrasse 12."
-  },
-  "api-test": {
-    "title": "Recipes",
-    "subtitle": "Explore recipes across every type of occasion, ingredient and skill level."
-  },
-  "server-unreachable": {
-    "title": "Sorry, we can't reach the server API for now."
+  "page": {
+    "home": {
+      "title": "Start",
+      "intro": "Pixelgarage Frontend Template",
+      "meta": {
+        "descr": "bGeroi Basic Income App"
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "meta": {
+        "descr": "Contact information of bGeroi Basic Income App."
+      },
+      "invitation": "We look forward to getting in touch with you by mail, telephone or for a cup of coffee or tea together at Binzstrasse 12."
+    },
+    "impressum": {
+      "title": "Impressum",
+      "meta": {
+        "descr": "Impressum of bGeroi Basic Income App."
+      }
+    },
+    "data-protection": {
+      "title": "Data protection",
+      "meta": {
+        "descr": "Data protection policy of bGeroi Basic Income App."
+      }
+    },
+    "server-unreachable": {
+      "title": "API unreachable",
+      "message": "Sorry, we can't reach the server API for now.",
+      "meta": {
+        "descr": "Error page, server can't be reached right now."
+      }
+    }
+    
   }
-
 }

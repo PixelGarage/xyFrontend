@@ -1,12 +1,12 @@
 <template>
   <span class="menu-lang">
     <no-ssr>
-      <b-link id="lang_menu">{{locale}}</b-link>
-      <b-popover target="lang_menu" placement="bottomcenter" triggers="focus">
-          <b-nav vertical justified>
-            <b-nav-item v-if="locale !== 'de'" :to="langRoutePath('de')">{{ $t('menu.de-long')}}</b-nav-item>
-            <b-nav-item v-if="locale !== 'en'" :to="langRoutePath('en')">{{ $t('menu.en-long')}}</b-nav-item>
-            <b-nav-item v-if="locale !== 'fr'" :to="langRoutePath('fr')">{{ $t('menu.fr-long')}}</b-nav-item>
+      <b-link id="lang_menu">{{ $t('comp.lang-menu.title') }}</b-link>
+      <b-popover class="popover" target="lang_menu" placement="bottomcenter" triggers="focus">
+          <b-nav class="popover__nav" vertical justified>
+            <b-nav-item class="popover__nav-item" v-if="locale !== 'de'" :to="langRoutePath('de')">{{ $t('comp.lang-menu.de-long')}}</b-nav-item>
+            <b-nav-item class="popover__nav-item" v-if="locale !== 'en'" :to="langRoutePath('en')">{{ $t('comp.lang-menu.en-long')}}</b-nav-item>
+            <b-nav-item class="popover__nav-item" v-if="locale !== 'fr'" :to="langRoutePath('fr')">{{ $t('comp.lang-menu.fr-long')}}</b-nav-item>
           </b-nav>
       </b-popover>
     </no-ssr>
@@ -38,8 +38,29 @@ export default {
 </script>
 
 <style lang="scss">
+  @import "~/assets/scss/component.scss";
+
   #lang_menu {
     padding: 0.5rem;
+  }
+
+  .popover {
+    .popover__nav {
+      .popover__nav-item {
+        a {
+          @include pxl-menu();
+          outline: none;
+          color: $link-color;
+          text-decoration: $link-decoration;
+
+          @include hover-focus-active {
+            outline: none;
+            color: $link-hover-color;
+            text-decoration: $link-hover-decoration;
+          }
+        }
+      }
+    }
   }
 </style>
 

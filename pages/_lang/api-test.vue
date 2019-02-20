@@ -21,9 +21,10 @@ export default {
   },
   head () {
     return {
-      title: 'Home',
-      titleTemplate: `%s | ${process.env.title}`
+      title: this.$t('page.api-test.title'),
+      titleTemplate: `%s | ${process.env.APP_TITLE}`,
+      meta: [ { hid: 'description', name: 'description', content: this.$t('page.api-test.meta.descr') } ]
     }
-  }
+  },
 }
 </script>

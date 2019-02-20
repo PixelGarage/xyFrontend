@@ -69,7 +69,7 @@ $pxl-color-glow: #40856D;
     font-size: $med-size;
   }
   // max. font size
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(xl) {
     font-size: $max-size;
   }
 }
@@ -114,6 +114,15 @@ $pxl-color-glow: #40856D;
   @include media-breakpoint-up(md) {
     text-align: $subtext-text-align;
   }
+}
+
+@mixin pxl-menu(){
+  font-family: $pxl-menu-font;
+  @include pxl-font-size-responsive($resp-menu-size-min,$resp-menu-size-med,$resp-menu-size-max);
+  letter-spacing: $menu-letter-spacing;
+  line-height: $menu-line-height;
+  text-align: $menu-text-align;
+  color: $text-color;
 }
 
 @mixin pxl-glow(){

@@ -1,30 +1,70 @@
 {
-  "menu": {
-    "contact": "Kontakt",
-    "api-test": "API-Test",
-    "impressum": "Impressum",
-    "de": "de",
-    "de-long": "Deutsch",
-    "en": "en",
-    "en-long": "Englisch",
-    "fr": "fr",
-    "fr-long": "Französisch"
+  "header": {
+    "menu": {
+      "api-test": "Api-Test",
+      "contact": "Kontakt"
+    }
   },
   "footer": {
     "impressum": "Impressum",
-    "copy-rights": "© 2018+ Pixelgarage. Alle Rechte vorbehalten"
+    "data-protection": "Datenschutz",
+    "newsletter": "Newsletter",
+    "copy-rights": "© 2018+ Verein Dein Grundeinkommen. Alle Rechte vorbehalten",
+    "copy-rights-short": "© 2018+ Dein Grundeinkommen."
   },
-  "home": {
-    "title": "Pixelgarage Frontend Vorlage"
+  "comp": {
+    "lang-menu": {
+      "title": "de",
+      "de-long": "Deutsch",
+      "en-long": "Englisch",
+      "fr-long": "Französisch"
+    },
+    "user-menu": {
+      "auth": "authentifizieren...",
+      "login": "Login",
+      "logout": "Logout",
+      "cockpit": "Cockpit",
+      "errMsg": "Beim Login ist ein Fehler aufgetreten: {err}"
+    },
+    "api-test": {
+      "title": "Gerichte",
+      "subtitle": "Entdecke Gerichte für jede Art von Anlass, Zutat und Fertigkeit."
+    }
   },
-  "contact": {
-    "invitation": "Wir freuen uns über eine Kontaktaufnahme per Mail, Telefon oder auf einen gemeinsamen Kaffee oder Tee an der Binzstrasse 12."
-  },
-  "api-test": {
-    "title": "Gerichte",
-    "subtitle": "Entdecke Gerichte für jede Art von Anlass, Zutat und Fertigkeit."
-  },
-  "server-unreachable": {
-    "title": "Das Server-API kann zur Zeit nicht erreicht werden."
+  "page": {
+    "home": {
+      "title": "Start",
+      "intro": "Pixelgarage Frontend Vorlage",
+      "meta": {
+        "descr": "bGeroi Grundeinkommen App"
+      }
+    },
+    "contact": {
+      "title": "Kontakt",
+      "meta": {
+        "descr": "Die Kontaktdaten der bGeroi Grundeinkommen App."
+      },
+      "invitation": "Wir freuen uns über eine Kontaktaufnahme per Mail, Telefon oder auf einen gemeinsamen Kaffee oder Tee an der Binzstrasse 12."
+    },
+    "impressum": {
+      "title": "Impressum",
+      "meta": {
+        "descr": "Impressum der bGeroi Grundeinkommen App"
+      }
+    },
+    "data-protection": {
+      "title": "Datenschutz",
+      "meta": {
+        "descr": "Datenschutzbestimmungen der bGeroi Grundeinkommen App"
+      }
+    },
+    "server-unreachable": {
+      "title": "API unerreichbar",
+      "message": "Das Server-API kann zur Zeit nicht erreicht werden.",
+      "meta": {
+        "descr": "Fehlerseite, das API auf dem Server ist nicht erreichbar."
+      }
+    }
+    
   }
-}
+ }

@@ -33,6 +33,7 @@ Diese Website verwendet Cookies. Cookies sind kleine Textdateien, die beim Besuc
 In Ihrem Browser können Sie Cookies in den Einstellungen jederzeit ganz oder teilweise deaktivieren. Bei deaktivierten Cookies stehen Ihnen allenfalls nicht mehr alle Funktionen dieser Website zur Verfügung.
 
 4. Erfassen von allgemeinen Daten und Informationen
+
 Wie bei jeder Verbindung mit einem Webserver protokolliert und speichert der Server unseres Webhosting-Anbieters cyon in Basel, Schweiz, bestimmte technische Daten. Zu diesen Daten gehören die IP-Adresse und das Betriebssystem Ihres Geräts, die Daten, die Zugriffszeit, die Art des Browsers sowie die Browser-Anfrage inklusive der Herkunft der Anfrage (Referrer). Dies ist aus technischen Gründen erforderlich, um Ihnen unsere Website zur Verfügung zu stellen. cyon schützt diese Daten mit technischen und organisatorischen Massnahmen vor unerlaubten Zugriffen und gibt sie nicht an Dritte weiter. Soweit wir dabei personenbezogene Daten verarbeiten, tun wir dies aufgrund unseres Interesses, Ihnen die bestmögliche Nutzererfahrung zu bieten und die Sicherheit und Stabilität unserer Systeme zu gewährleisten (gem. Art. 6 Abs. 1 lit. f DSGVO i.V.m. Art. 28 DSGVO - Abschluss Auftragsverarbeitungsvertrag).
 
 5. Registrierung von Mitgliedern

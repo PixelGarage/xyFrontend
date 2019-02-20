@@ -1,12 +1,12 @@
 <template>
   <AppSection>
-    <article v-html="impressum"></article>
+    <article v-html="dataProtection"></article>
   </AppSection>
 </template>
 
 <script>
 import AppSection from '~/components/AppSection.vue'
-import Impressum from "~/content/impressum.md"
+import DataProtection from "~/content/datenschutz.md"
 
 export default {
   components: {
@@ -14,14 +14,14 @@ export default {
   },
   head () {
     return {
-      title: this.$t('page.impressum.title'),
+      title: this.$t('page.data-protection.title'),
       titleTemplate: `%s | ${process.env.APP_TITLE}`,
-      meta: [ { hid: 'description', name: 'description', content: this.$t('page.impressum.meta.descr') } ]
+      meta: [ { hid: 'description', name: 'description', content: this.$t('page.data-protection.meta.descr') } ]
     }
   },
   data () {
     return {
-      impressum: Impressum,
+      dataProtection: DataProtection,
     }
   }
   
@@ -30,7 +30,7 @@ export default {
 
 <style lang="scss">
   /*
-  * Impressum page section 
+  * Datenschutz page section 
   * --------------------------------------------------*/
   $pxl-footer-height: 350px;
   $pxl-footer-height-md: 150px;
@@ -47,4 +47,5 @@ export default {
     }
   }
 </style>
+
 

@@ -9,7 +9,7 @@
         <!-- A progress icon is visible when authenticating -->
         <div v-if="authenticating" class="d-flex justify-content-center align-items-center">
           <font-awesome-icon class="d-block m-3" size="3x" :icon="spinnerIcon" spin></font-awesome-icon>
-          <div>authenticating...</div>
+          <div>{{ $t('comp.user-menu.auth') }}</div>
         </div>
         <!-- The Login form visible when no user is logged in -->
         <div v-else-if="!loggedIn">
@@ -19,19 +19,19 @@
           <b-form-group label="Password:" label-for="password" class="my-2">
             <b-form-input id="password" type="password" v-model="loginForm.password" required placeholder="Enter password"></b-form-input>
           </b-form-group>
-          <b-button @click="onSubmit" type="button" variant="primary" class="button-login my-3">Login</b-button>
+          <b-button @click="onSubmit" type="button" variant="primary" class="button-login my-3">{{ $t('comp.user-menu.login') }}</b-button>
         </div>
         <!-- The user menu is visible when a user is logged in -->
         <div v-else-if="loggedIn">
           <b-nav vertical justified>
-            <b-nav-item to="/">Cockpit</b-nav-item>
+            <b-nav-item to="/">{{ $t('comp.user-menu.cockpit') }}</b-nav-item>
             <b-nav-item disabled><hr></b-nav-item>
-            <b-nav-item @click="logout">Logout</b-nav-item>
+            <b-nav-item @click="logout">{{ $t('comp.user-menu.logout') }}</b-nav-item>
           </b-nav>
         </div>
         <!-- The login failed, display an error and a retry button -->
         <div v-else>
-          <div>An error occurred: {{authErrorMessage}}</div>
+          <div>{{ $t('comp.user-menu.errMsg', {err: authErrorMessage}) }}</div>
         </div>
       </b-popover>
     </no-ssr>
@@ -64,7 +64,7 @@ export default {
       'authErrorMessage'
     ]),
     userMenuLabel: function () {
-      return this.loggedIn ? this.$store.state.user.user.name : 'Login';
+      return this.loggedIn ? this.$store.state.user.user.name : this.$t('comp.user-menu.login');
     },
     userImageUrl: function () {
       return this.$store.state.user.user.url ? this.$store.state.basePath + this.$store.state.user.user.url : '/default.png';

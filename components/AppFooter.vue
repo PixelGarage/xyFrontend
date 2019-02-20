@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <b-container v-bind:fluid="fluid">
-      <div class="d-flex justify-content-end align-items-center mx-3 border-top copy-right">{{ $t('footer.copy-rights') }} | <b-link class="px-1" to="impressum">{{ $t('footer.impressum') }}</b-link></div>
+      <div class="d-flex justify-content-end align-items-center mx-3 border-top copy-right">{{ $t('footer.copy-rights') }} | <b-link class="px-1" to="impressum">{{ $t('footer.impressum') }}</b-link> | <b-link class="px-1" to="data-protection">{{ $t('footer.data-protection') }}</b-link></div>
     </b-container>
   </footer>
 

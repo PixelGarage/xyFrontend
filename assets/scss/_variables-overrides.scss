@@ -110,6 +110,11 @@ $subtext-line-height: 1.1667em;
 $subtext-text-align: left;
 $subtext-text-align-small: left;
 
+$menu-letter-spacing: 0;
+$menu-line-height: 1.1667em;
+$menu-text-align: left;
+$menu-text-align-small: left;
+
 $form-letter-spacing: normal;
 $form-line-height: 1.15em;
 $form-text-align: left;
@@ -135,6 +140,10 @@ $resp-text-size-min:      16px;
 $resp-subtext-size-max:   16px;
 $resp-subtext-size-med:   14px;
 $resp-subtext-size-min:   12px;
+
+$resp-menu-size-max:      24px;
+$resp-menu-size-med:      20px;
+$resp-menu-size-min:      24px;
 
 $resp-button-size-max:    28px;
 $resp-button-size-med:    28px;

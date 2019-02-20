@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AppNavigation v-bind:fluid="fluid"/>
+    <AppHeader v-bind:fluid="fluid"/>
     <b-container v-bind:fluid="fluidMain">
       <nuxt/>
     </b-container>
@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import AppNavigation from '~/components/AppNavigation'
+import AppHeader from '~/components/AppHeader'
 import AppFooter from '~/components/AppFooter'
 
 export default  {
-  components: { AppNavigation, AppFooter },
+  components: { AppHeader, AppFooter },
   data() {
     return {
       fluid: true,

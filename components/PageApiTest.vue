@@ -2,8 +2,8 @@
   <div class="home">
   
     <AppSection v-if="latestRecipes" class="home-recipes">
-      <h3 class="title text-center">{{ $t('api-test.title') }}</h3>
-      <h4 class="title text-center">{{ $t('api-test.subtitle')}}</h4>
+      <h3 class="title text-center">{{ $t('comp.api-test.title') }}</h3>
+      <h4 class="title text-center">{{ $t('comp.api-test.subtitle')}}</h4>
       <no-ssr>
         <div v-masonry item-selector=".grid-item" column-width=".grid-sizer" gutter=".gutter-sizer" transition-duration="0.5s" class="grid-container">
           <div class="grid-sizer"></div>
@@ -40,7 +40,7 @@ export default {
     return {
       basePath: this.$store.state.basePath,
     }
-  }
+  },
 }
 </script>
 

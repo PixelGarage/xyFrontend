@@ -6,7 +6,7 @@
       </b-col>
       <b-col cols="12" md="6" class="contact align-self-sm-center pb-3">
         <div v-html="contact"></div>
-        <div>{{ $t('contact.invitation') }}</div>
+        <div>{{ $t('page.contact.invitation') }}</div>
       </b-col>
     </b-row>
   </AppSection>
@@ -20,12 +20,11 @@ export default {
   components: {
     AppSection
   },
-  head() {
+  head () {
     return {
-      title: 'Kontakt - Pixelgarage',
-      meta: [
-        {hid: 'description', name: 'description', content: "Kontaktdaten der Pixelgarage. "}
-      ]
+      title: this.$t('page.contact.title'),
+      titleTemplate: `%s | ${process.env.APP_TITLE}`,
+      meta: [ { hid: 'description', name: 'description', content: this.$t('page.contact.meta.descr') } ]
     }
   },
   data () {
@@ -40,6 +39,8 @@ export default {
 /*
  * Contact page section 
  * --------------------------------------------------*/
+  $pxl-footer-height: 350px;
+  $pxl-footer-height-md: 150px;
   @import '~/assets/scss/page.scss';
 
   .contact {
