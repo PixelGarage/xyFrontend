@@ -5,11 +5,10 @@
  * reponses : it resolves relationships and included objects nicely.
  *
  * Example usage:
- *   const api = new DrupalApiClient(context)
+ *   const api = new PxlApiClient(context)
  *   const datas = await api.get('recipes', queryParams)
  */
 import Waterwheel from './lib/waterwheel';
-import JsonapiParse from 'jsonapi-parse';
 
 /*
  * AuthenticationError class.
@@ -26,19 +25,20 @@ class AuthenticationError extends Error {
 }
 
 /*
- * Drupal Api client.
+ * Api client handling connections to REST API's.
  *
- * Implements the JsonApi Rest interface to the Drupal server including 
+ * The class implements the JSON:API specification (among others) and  
  * an OAuth standardized API authorisation.
  */
-class DrupalApiClient {
+class PxlApiClient {
   /**
-   * Creates an instance of the DrupalApiClient class.
+   * Creates an instance of the PxlApiClient class.
    */
   constructor () {
     this.options = {
       base: false,
       jsonapiPrefix: process.env.JSON_API_PREFIX,
+      useJsonapiSpec: process.env.JSON_API_SPEC == 'V1',
       validation: false,
       timeout: 3000,
     };
@@ -76,7 +76,7 @@ class DrupalApiClient {
    *   Rejects if there's an error.
    */
   async login (name, password) {
-    console.assert(this.waterwheel.getBase(), 'DrupalApi: The API is not initialized.');
+    console.assert(this.waterwheel.getBase(), 'PxlApi: The API is not initialized.');
 
     if (name && password) {
       const oauthOptions = {
@@ -101,17 +101,18 @@ class DrupalApiClient {
             }
           }
         };
-        const response = await this.waterwheel.jsonapi.get('users', queryParams);
-        user = JsonapiParse.parse(response).data[0];
+        const response = await this.get('users', queryParams);
+        user = response[0];
       } 
       catch (error) {
         const status = error.status ? error.status : 400;
         throw new AuthenticationError(status, `User login failed with status ${status}: ${error.message}`);
       }
       finally {
-        // delete password for safety reason (token available) and return user
+        // delete password for safety reason (token available)
         delete this.waterwheel.oauth.tokenInformation.password;
       }
+      // return user object {id, internalId, name, picture_url}
       return {
         id: user.id,
         internalId: user.internalId,
@@ -150,11 +151,9 @@ class DrupalApiClient {
    *   Resolves when the request is fulfilled, rejects if there's an error.
    */
   async get (uri, queryParams = {}, id = '') {
-    console.assert(this.waterwheel.getBase(), 'DrupalApi: The API is not initialized.');
+    console.assert(this.waterwheel.getBase(), 'PxlApi: The API is not initialized.');
     
-    const response = await this.waterwheel.jsonapi.get(uri, queryParams, id);
-    const data = JsonapiParse.parse(response).data;
-    return data;
+    return await this.waterwheel.jsonapi.get(uri, queryParams, id);
   }
 
   /**
@@ -169,11 +168,9 @@ class DrupalApiClient {
    *   Resolves when the request is fulfilled, rejects if there's an error.
    */
   async post (uri, body) {
-    console.assert(this.waterwheel.getBase(), 'DrupalApi: The API is not initialized.');
+    console.assert(this.waterwheel.getBase(), 'PxlApi: The API is not initialized.');
     
-    const response = await this.waterwheel.jsonapi.post(uri, body);
-    const data = JsonapiParse.parse(response).data;
-    return data;
+    return await this.waterwheel.jsonapi.post(uri, body);
   }
 
   /**
@@ -188,11 +185,9 @@ class DrupalApiClient {
    *   Resolves when the request is fulfilled, rejects if there's an error.
    */
   async patch(uri, body) {
-    console.assert(this.waterwheel.getBase(), 'DrupalApi: The API is not initialized.');
+    console.assert(this.waterwheel.getBase(), 'PxlApi: The API is not initialized.');
     
-    const response = await this.waterwheel.jsonapi.patch(uri, body);
-    const data = JsonapiParse.parse(response).data;
-    return data;
+    return await this.waterwheel.jsonapi.patch(uri, body);
   }
 
   /**
@@ -207,15 +202,13 @@ class DrupalApiClient {
    *   Resolves when the request is fulfilled, rejects if there's an error.
  */
   async delete(uri, id) {
-    console.assert(this.waterwheel.getBase(), 'DrupalApi: The API is not initialized.');
+    console.assert(this.waterwheel.getBase(), 'PxlApi: The API is not initialized.');
     
-    const response = await this.waterwheel.jsonapi.delete(uri, id);
-    const data = JsonapiParse.parse(response).data;
-    return data;
+    return await this.waterwheel.jsonapi.delete(uri, id);
   }
 }
 
 //
 // exports
-export default DrupalApiClient;
-export { DrupalApiClient, AuthenticationError };
+export default PxlApiClient;
+export { PxlApiClient, AuthenticationError };

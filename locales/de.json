@@ -36,26 +36,32 @@
       "title": "Start",
       "intro": "Pixelgarage Frontend Vorlage",
       "meta": {
-        "descr": "bGeroi Grundeinkommen App"
+        "descr": "Home page"
+      }
+    },
+    "api-test": {
+      "title": "API-Test",
+      "meta": {
+        "descr": "API-Test page."
       }
     },
     "contact": {
       "title": "Kontakt",
       "meta": {
-        "descr": "Die Kontaktdaten der bGeroi Grundeinkommen App."
+        "descr": "Die Kontaktdaten von Pixelgarage"
       },
       "invitation": "Wir freuen uns über eine Kontaktaufnahme per Mail, Telefon oder auf einen gemeinsamen Kaffee oder Tee an der Binzstrasse 12."
     },
     "impressum": {
       "title": "Impressum",
       "meta": {
-        "descr": "Impressum der bGeroi Grundeinkommen App"
+        "descr": "Impressum von Pixelgarage"
       }
     },
     "data-protection": {
       "title": "Datenschutz",
       "meta": {
-        "descr": "Datenschutzbestimmungen der bGeroi Grundeinkommen App"
+        "descr": "Datenschutzbestimmungen von Pixelgarage"
       }
     },
     "server-unreachable": {

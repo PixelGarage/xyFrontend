@@ -1,20 +1,20 @@
 /**
- * DrupalApi class implements the specific asynchronous API-functionality for the application.
+ * PxlApi class implements the specific asynchronous API-functionality for the application.
  * 
  * Example usage:
- *   const api = new DrupalApi()
+ *   const api = new PxlApi()
  *   api.init(context);
  */
-import { DrupalApiClient, AuthenticationError } from './DrupalApiClient';
+import { PxlApiClient, AuthenticationError } from './PxlApiClient';
 
-class DrupalApiInst extends DrupalApiClient {
+class PxlApiInst extends PxlApiClient {
   /**
    * Holds the one and only instance.
    */
   static instance = false;
 
   /**
-   * Creates the singleton instance of the DrupalApi.
+   * Creates the singleton instance of the PxlApi.
    */
   constructor () {
     super();
@@ -25,7 +25,7 @@ class DrupalApiInst extends DrupalApiClient {
   }
 
   /*
-   * Define Drupal API methods here
+   * Define Pixel API methods here
    */
   async findAllLatestRecipes (limit = 4, offset = 0) {
     const query = {
@@ -46,10 +46,10 @@ class DrupalApiInst extends DrupalApiClient {
 }
 
 // create singleton and protect against change
-const DrupalApi = new DrupalApiInst();
-Object.freeze(DrupalApi);
+const PxlApi = new PxlApiInst();
+Object.freeze(PxlApi);
 
 //
 // exports
-export default DrupalApi;
-export { DrupalApi, AuthenticationError };
+export default PxlApi;
+export { PxlApi, AuthenticationError };

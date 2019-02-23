@@ -1,11 +1,13 @@
 import methods from './helpers/methods';
 import qs from 'qs';
+import JsonapiParse from 'jsonapi-parse';
 
 
 export default class JSONAPI {
   constructor(options, request) {
     this.request = request;
     this.jsonapiPrefix = options.jsonapiPrefix || 'jsonapi';
+    this.useJsonapiSpec = options.useJsonapiSpec || true;
   }
 
   /**
@@ -20,9 +22,10 @@ export default class JSONAPI {
    * @return {promise}
    *   Resolves when the request is fulfilled, rejects if there's an error.
  */
-  get(resource, params, id = false) {
+  async get(resource, params, id = false) {
     const url = `/${this.jsonapiPrefix}/${resource}${id ? `/${id}` : ''}${Object.keys(params).length ? `?${qs.stringify(params, {indices: false})}` : ''}`;
-    return this.request.issueRequest(methods.get, url);
+    const response = await this.request.issueRequest(methods.get, url);
+    return this.useJsonapiSpec ? JsonapiParse.parse(response).data : JSON.parse(response);
   }
 
   /**
@@ -33,7 +36,7 @@ export default class JSONAPI {
    * from the server, which is added to the request header when issuing the POST request.
    * 
    * @param {string} resource
-   *   The relative path to fetch from the API.
+   *   The relative path to resource to be posted.
    * @param  {object} body
    *   JSON data sent to Drupal
    * @param {boolean} useXCSRF
@@ -41,8 +44,8 @@ export default class JSONAPI {
    * @return {promise}
    *   Resolves when the request is fulfilled, rejects if there's an error.
    */
-  post(resource, body, useXCSRF = false) {
-    return (useXCSRF ?
+  async post(resource, body, useXCSRF = false) {
+    const response = await (useXCSRF ?
       this.request.getXCSRFToken() :
       Promise.resolve()
     )
@@ -51,11 +54,12 @@ export default class JSONAPI {
         methods.post,
         `/${this.jsonapiPrefix}/${resource}`,
         {
-          'Content-Type': 'application/vnd.api+json'
+          'Content-Type': this.useJsonapiSpec ? 'application/vnd.api+json' : 'application/json'
         },
         body
       );
     });
+    return this.useJsonapiSpec ? JsonapiParse.parse(response).data : JSON.parse(response);
   }
 
   /**
@@ -66,7 +70,7 @@ export default class JSONAPI {
    * from the server, which is added to the request header when issuing the PATCH request.
    * 
    * @param {string} resource
-   *   The relative path to fetch from the API.
+   *   The relative path to resource to be patched.
    * @param  {object} body
    *   JSON data sent to Drupal
    * @param {boolean} useXCSRF
@@ -74,8 +78,8 @@ export default class JSONAPI {
    * @return {promise}
    *   Resolves when the request is fulfilled, rejects if there's an error.
    */
-  patch(resource, body, useXCSRF = false) {
-    return (useXCSRF ?
+  async patch(resource, body, useXCSRF = false) {
+    const response = await (useXCSRF ?
       this.request.getXCSRFToken() :
       Promise.resolve()
     )
@@ -84,11 +88,13 @@ export default class JSONAPI {
         methods.patch,
         `/${this.jsonapiPrefix}/${resource}`,
         {
-          'Content-Type': 'application/vnd.api+json'
+          'Content-Type': this.useJsonapiSpec ? 'application/vnd.api+json' : 'application/json'
         },
         body
       );
     });
+    // return parsed object
+    return this.useJsonapiSpec ? JsonapiParse.parse(response).data : JSON.parse(response);
   }
 
   /**
@@ -99,16 +105,16 @@ export default class JSONAPI {
    * from the server, which is added to the request header when issuing the DELETE request.
    * 
    * @param {string} resource
-   *   The relative path to fetch from the API.
+   *   The relative path to resource to be deleted.
    * @param {string} id
    *   An ID of an individual item to delete.
    * @param {boolean} useXCSRF
    *   True if request has to be XCSRF protected.
    * @return {promise}
    *   Resolves when the request is fulfilled, rejects if there's an error.
- */
-  delete(resource, id, useXCSRF = false) {
-    return (useXCSRF ?
+   */
+  async delete(resource, id, useXCSRF = false) {
+    const response = await (useXCSRF ?
       this.request.getXCSRFToken() :
       Promise.resolve()
     )
@@ -118,10 +124,12 @@ export default class JSONAPI {
         methods.delete,
         url,
         {
-          'Content-Type': 'application/vnd.api+json'
+          'Content-Type': this.useJsonapiSpec ? 'application/vnd.api+json' : 'application/json'
         }
       );
     });
+    // return parsed object
+    return this.useJsonapiSpec ? JsonapiParse.parse(response).data : JSON.parse(response);
   }
 
 };

@@ -2,7 +2,7 @@ export default class Base {
   /**
    * Create an instance of the Base class.
    * @param {object} options
-   *   The configuration used to create a new instance of Waterwheel.
+   *   The configuration of an instance of Base class.
    * @param {string} options.base
    *   The base URL.
    */

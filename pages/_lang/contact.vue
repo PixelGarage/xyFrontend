@@ -39,8 +39,6 @@ export default {
 /*
  * Contact page section 
  * --------------------------------------------------*/
-  $pxl-footer-height: 350px;
-  $pxl-footer-height-md: 150px;
   @import '~/assets/scss/page.scss';
 
   .contact {

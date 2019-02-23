@@ -36,26 +36,32 @@
       "title": "Start",
       "intro": "Pixelgarage Frontend Template",
       "meta": {
-        "descr": "bGeroi Basic Income App"
+        "descr": "Home page of Pixelgarage forntend template"
+      }
+    },
+    "api-test": {
+      "title": "API-Test",
+      "meta": {
+        "descr": "API-Test page."
       }
     },
     "contact": {
       "title": "Contact",
       "meta": {
-        "descr": "Contact information of bGeroi Basic Income App."
+        "descr": "Contact information of Pixelgarage."
       },
       "invitation": "We look forward to getting in touch with you by mail, telephone or for a cup of coffee or tea together at Binzstrasse 12."
     },
     "impressum": {
       "title": "Impressum",
       "meta": {
-        "descr": "Impressum of bGeroi Basic Income App."
+        "descr": "Impressum of Pixelgarage."
       }
     },
     "data-protection": {
       "title": "Data protection",
       "meta": {
-        "descr": "Data protection policy of bGeroi Basic Income App."
+        "descr": "Data protection policy of Pixelgarage."
       }
     },
     "server-unreachable": {

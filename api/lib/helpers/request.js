@@ -5,7 +5,7 @@ export default class Request extends Base {
   /**
    * Create an instance of the Request class.
    * @param {object} options
-   *   The configuration used to create a new instance of Waterwheel.
+   *   The configuration to create a new instance of Request class.
    * @param {string} options.base
    *   The base URL.
    * @param {object} oauth
@@ -78,7 +78,9 @@ export default class Request extends Base {
             error.status = 408;
           }
           else {
-            error.message = err.response ? (err.response.data.message ? err.response.data.message : err.response.statusText) : 'Unknown error.';
+            error.message = err.response ? 
+              (err.response.data.message ? err.response.data.message : err.response.statusText) : 
+              'Unknown error.';
             error.status = err.response ? err.response.status : 500;
           }
 

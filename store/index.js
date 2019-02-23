@@ -1,7 +1,6 @@
 /*
  * Initialize the Drupal API with context
  */
-import DrupalApi from '~/api/DrupalApi.js'
 
 export const state = () => ({
   isDev: false,

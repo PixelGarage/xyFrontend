@@ -22,11 +22,12 @@
 
 <script>
 import LangMenu from './LangMenu.vue';
-import { mapGetters } from 'vuex'
+import UserMenu from './UserMenu.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   components: {
-    LangMenu,
+    LangMenu, UserMenu,
   },
   props: {
     fluid: Boolean

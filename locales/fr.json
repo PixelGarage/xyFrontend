@@ -36,26 +36,32 @@
       "title": "Start",
       "intro": "Pixelgarage Frontend Schablone",
       "meta": {
-        "descr": "bGeroi revenu de base application."
+        "descr": "Pixelgarage Frontend Schablone."
+      }
+    },
+    "api-test": {
+      "title": "API-Test",
+      "meta": {
+        "descr": "API-Test page."
       }
     },
     "contact": {
       "title": "Contact",
       "meta": {
-        "descr": "Les coordonnées de revenu de base application 'bGeroi'."
+        "descr": "Les coordonnées de Pixelgarage."
       },
       "invitation": "Nous nous réjouissons de prendre contact avec vous par courrier, téléphone ou pour une tasse de café ou de thé à la Binzstrasse 12."
     },
     "impressum": {
       "title": "Impressum",
       "meta": {
-        "descr": "Mentions légales de de revenu de base application 'bGeroi'."
+        "descr": "Mentions légales de Pixelgarage."
       }
     },
     "data-protection": {
       "title": "Protection des données",
       "meta": {
-        "descr": "Politique de confidentialité de l'application revenu de base bGeroi."
+        "descr": "Politique de confidentialité de Pixelgarage."
       }
     },
     "server-unreachable": {

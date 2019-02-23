@@ -1,7 +1,7 @@
 //
 //  Defines the user module in the vuex store.
 //
-import { DrupalApi, AuthenticationError } from '~/api/DrupalApi.js'
+import { PxlApi, AuthenticationError } from '~/api/PxlApi.js'
 
 export const state = () => ({
   authenticating: false,
@@ -63,7 +63,7 @@ export const actions = {
   async login({ commit }, { name, password }) {
     commit('loginRequest');
     try {
-      const user = await DrupalApi.login(name, password);
+      const user = await PxlApi.login(name, password);
       commit('loginSuccess', user);
       return true;
       
@@ -82,16 +82,16 @@ export const actions = {
    * Initialisation of login state (after refresh).
   */
   init ({ commit }, context) {
-    // init DrupalApi and user store
-    DrupalApi.init(context);
-    if (!DrupalApi.loggedIn()) commit('logoutSuccess');
+    // init PxlApi and user store
+    PxlApi.init(context);
+    if (!PxlApi.loggedIn()) commit('logoutSuccess');
   },
 
   /**
    * Logout of user.
    */
   logout({ commit }) {
-    DrupalApi.logout();
+    PxlApi.logout();
     commit('logoutSuccess');
   }
 };

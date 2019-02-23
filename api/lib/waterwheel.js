@@ -33,6 +33,9 @@ export default class Waterwheel extends Base {
    * @param {string} options.jsonapiPrefix
    *   If you have overridden the JSON API prefix, specify it here and Waterwheel
    *   will use this over the default of 'jsonapi'.
+   * @param {boolean} options.useJsonapiSpec
+   *   True, if the content follows the JSON:API specification V1.0 (Mime type=application/vnd.api+json), 
+   *   otherwise normal JSON content (Mime type=application/json) is expected. Default: true
    * @param {boolean} options.validation
    *   Should the request use oauth validation or expect anonymous access.
    */
