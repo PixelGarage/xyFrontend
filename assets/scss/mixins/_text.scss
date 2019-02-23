@@ -125,6 +125,26 @@ $pxl-color-glow: #40856D;
   color: $text-color;
 }
 
+@mixin pxl-quote(){
+  font-family: $pxl-quote-font;
+  @include pxl-font-size-responsive($resp-quote-size-min, $resp-quote-size-med, $resp-quote-size-max);
+  letter-spacing: $quote-letter-spacing;
+  line-height: $quote-line-height;
+  text-align: $quote-text-align;
+  color: $text-color;
+}
+
+@mixin pxl-subquote(){
+  font-family: $pxl-subquote-font;
+  @include pxl-font-size-responsive($resp-subquote-size-min, $resp-subquote-size-med, $resp-subquote-size-max);
+  letter-spacing: $subquote-letter-spacing;
+  line-height: $subquote-line-height;
+  text-align: $subquote-text-align;
+  color: $text-color;
+}
+
+
+
 @mixin pxl-glow(){
   font-family: $pxl-text-font-light;
   @include pxl-font-size-responsive(100px, 100px, 50px);
@@ -188,8 +208,8 @@ $pxl-color-glow: #40856D;
     color: $link-color;
 
     @include hover-focus {
-      color: $link-hover-color;
-      text-decoration: $link-hover-decoration;
+      color: $link-color-hover;
+      text-decoration: $link-decoration-hover;
       background: none;
     }
   }
@@ -206,7 +226,7 @@ $pxl-color-glow: #40856D;
     color: $link-color;
 
     @include hover-focus {
-      color: $link-hover-color;
+      color: $link-color-hover;
     }
   }
 

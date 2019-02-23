@@ -60,10 +60,12 @@ $dark:          $gray-800;
 
 //
 // pxl site colors
-$pxl-color-main: #333;
-$pxl-color-second: #808080;
-$pxl-color-border: $gray-500;
-$pxl-color-border-active: $orange;
+$pxl-color-main: #BF9C50;
+$pxl-color-second: #92BDC3;
+$pxl-color-border: #c9c9c9;
+$pxl-color-light: #e2e2e2;
+$pxl-color-active: darken($pxl-color-light, 40%);
+$pxl-color-border-active: $pxl-color-second;
 
 // Body
 //
@@ -75,16 +77,23 @@ $body-color:                $gray-400;
 //
 // Style anchor elements.
 
-$link-color:                $gray-900;
+$link-color:                $gray-800;
 $link-decoration:           none;
-$link-hover-color:          $orange;
-$link-hover-decoration:     none;
+$link-color-hover:          $pxl-color-main;
+$link-decoration-hover:     none;
+
+//
+// button colors
+$button-color-bg: $pxl-color-light;
+$button-color-bg-active: $pxl-color-active;
 
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
-$text-color:             $gray-900;
-$text-color-disabled:    $gray-600;
+$text-color:             $gray-800;
+$text-color-active:      $pxl-color-active;
+$text-color-light:       $pxl-color-light;
+$text-color-disabled:    $gray-500;
 $text-muted:             $text-color-disabled;
 $text-color-form:        $text-color;
 $text-color-placeholder: $gray-500;
@@ -109,6 +118,16 @@ $subtext-letter-spacing: 0;
 $subtext-line-height: 1.1667em;
 $subtext-text-align: left;
 $subtext-text-align-small: left;
+
+$quote-letter-spacing: 0;
+$quote-line-height: 1.1667em;
+$quote-text-align: left;
+$quote-text-align-small: left;
+
+$subquote-letter-spacing: 0;
+$subquote-line-height: 1.1667em;
+$subquote-text-align: left;
+$subquote-text-align-small: left;
 
 $menu-letter-spacing: 0;
 $menu-line-height: 1.1667em;
@@ -141,9 +160,17 @@ $resp-subtext-size-max:   16px;
 $resp-subtext-size-med:   14px;
 $resp-subtext-size-min:   12px;
 
-$resp-menu-size-max:      24px;
-$resp-menu-size-med:      20px;
-$resp-menu-size-min:      24px;
+$resp-quote-size-max:   50px;
+$resp-quote-size-med:   45px;
+$resp-quote-size-min:   35px;
+
+$resp-subquote-size-max:   30px;
+$resp-subquote-size-med:   25px;
+$resp-subquote-size-min:   20px;
+
+$resp-menu-size-max:   24px;
+$resp-menu-size-med:   20px;
+$resp-menu-size-min:   24px;
 
 $resp-button-size-max:    28px;
 $resp-button-size-med:    28px;

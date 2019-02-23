@@ -12,14 +12,13 @@
 
   a {
     outline: none;
-    text-decoration: none;
     color: $link-color;
     text-decoration: $link-decoration;
 
     @include hover-focus-active {
       outline: none;
-      color: $link-hover-color;
-      text-decoration: $link-hover-decoration;
+      color: $link-color-hover;
+      text-decoration: $link-decoration-hover;
     }
   }
 
