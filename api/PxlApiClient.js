@@ -191,6 +191,25 @@ class PxlApiClient {
   }
 
   /**
+   * HTTP PUT request method in Json format (not supported in JsonApi format). 
+   * This request updates to whole resource.
+   * 
+   * @param {string} uri
+   *   The relative path to fetch from the API.
+   * @param {string} id
+   *   An ID of an individual item to modify.
+   * @param  {object} body
+   *   JSON data sent to Drupal
+   * @return {promise}
+   *   Resolves when the request is fulfilled, rejects if there's an error.
+   */
+  async put(uri, id, body) {
+    console.assert(this.waterwheel.getBase(), 'PxlApi: The API is not initialized.');
+    
+    return await this.waterwheel.jsonapi.put(uri, id, body);
+  }
+
+  /**
    * HTTP DELETE request method in JsonApi format. 
    * This request deletes the specified resource
    *
