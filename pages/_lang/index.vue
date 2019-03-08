@@ -13,7 +13,7 @@
 
 <script>
 import AppSection from '~/components/AppSection.vue'
-import PxlLogo from '~/components/PxlLogo.vue'
+import PxlLogo from '~/components/logo/PxlLogo.vue'
 
 export default {
   layout: 'default',

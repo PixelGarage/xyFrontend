@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Cube from '~/components/PxlCube.vue';
+import Cube from '~/components/logo/PxlCube.vue';
 
 export default {
   components: {

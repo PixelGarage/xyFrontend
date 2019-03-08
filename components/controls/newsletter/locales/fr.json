@@ -1,0 +1,20 @@
+{
+  "comp": {
+    "mailchimp": {
+      "emailFieldName": "Email",
+      "success": "Vous vous êtes abonné avec succès à notre newsletter. Je vous remercie !",
+      "error": "Oups, veuillez entrer une adresse email correcte !",
+      "placeholder": "Entrez votre email....",
+      "placeholder-err": "Adresse email incorrecte !",
+      "submit": "S'inscrire",
+      "gdpr": {
+        "label": "Permis de mise sur le marché",
+        "select-intro": "Veuillez choisir si 'Votre revenu de base' peut continuer à vous contacter par courrier :",
+        "checkbox-email": "Email",
+        "unsubscribe": "Vous pouvez vous désabonner à tout moment en cliquant sur le lien dans le pied de page de nos courriels. Pour plus d'informations sur nos pratiques en matière de protection de la vie privée, veuillez consulter notre site Web.",
+        "legal": "Nous utilisons Mailchimp comme plateforme marketing. En cliquant ci-dessous pour vous abonner, vous reconnaissez que vos informations seront transférées à Mailchimp pour traitement. {link}",
+        "link": "Pour en savoir plus sur les pratiques de confidentialité de Mailchimp, cliquez ici."
+      }
+    }
+  }
+}

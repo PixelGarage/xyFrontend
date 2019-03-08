@@ -55,7 +55,7 @@ export default {
   mounted () {
     //
     // add the specific list subscription url here (uid and lid are required properties of the component)
-    this.subscriptionUrl = `https://deinbge.us9.list-manage.com/subscribe/post?u=${this.uid}&id=${this.lid}`;
+    this.subscriptionUrl = `https://**** ADD YOUR LIST ADDRESS HERE ***.list-manage.com/subscribe/post?u=${this.uid}&id=${this.lid}`;
     this.subscriptionUrl = this.subscriptionUrl.replace('post?u', 'post-json?u');
   },
   methods: {
@@ -151,117 +151,4 @@ export default {
   </div>
 </template>
 
-<style lang="scss">
-  /*
-  * Mailchimp rules 
-  * --------------------------------------------------*/
-  @import "~/assets/scss/component.scss";
-
-  $c: 'mailchimp';
-
-  .#{$c} {
-    position: relative;
-    width: 100%;
-
-    &__form {
-      width: 100%;
-      @include media-breakpoint-up(lg) {
-        width: 60%;
-      }
-    }
-    &__form-field-item {
-      display: inline-block;
-      vertical-align: top;
-      min-width: 60%;
-      label {
-        display: none;
-      }
-      .#{$c}__email {
-        padding: .2rem 1rem;
-        width: 100%;
-        @include pxl-subquote();
-        @include pxl-placeholder($pxl-color-main);
-        border: 1px solid $pxl-color-border;
-
-        @include hover-focus {
-        border: 1px solid $pxl-color-border-active;
-        }
-      }
-    }
-    &__form-field-submit {
-      display: inline-block;
-      margin-left: -5px;
-      vertical-align: top;
-
-      .#{$c}__button-submit {
-        padding: 0.2rem 1.5rem;
-        @include pxl-subquote();
-        color: white;
-        border-radius: 0;
-        border: 1px solid $pxl-color-main;
-        background-color: $pxl-color-main;
-
-        @include hover {
-          background-color: darken($pxl-color-main, 20%);
-          box-shadow: none;
-        }
-        &[disabled] {
-          background-color: lighten($pxl-color-main, 40%);
-          @include hover {
-            background-color: lighten($pxl-color-main, 40%);
-          }
-        }
-      }
-    }
-
-    &__error {
-      @include pxl-text();
-      color: $red;
-    }
-
-    &__message-container {
-      display: block;
-      @include pxl-subquote();
-      color: $pxl-color-main;
-    }
-
-    &__gdpr-block {
-      @include pxl-subtext();
-      color: $text-color;
-
-      .#{$c}__gdpr {
-        margin-top: 1.2rem;
-
-        label {
-          font-weight: bold;
-        }
-        p {
-          margin-bottom: .5rem;
-        }
-        .#{$c}__fieldset {
-          min-height: 0px;
-          padding-bottom:0px;
-          border: none;
-
-          label {
-            margin-bottom: 0.5rem;
-
-            input[type=checkbox] {
-              display: inline; 
-              margin-right: 10px;
-            }
-          }
-        }
-      }
-      .#{$c}__gdpr-legal {
-        a {
-          text-decoration: none;
-          @include hover {
-            color: $pxl-color-main;
-            text-decoration: none;
-          }
-        }
-      }
-    }
-  }
-</style>
+<style src="./mailchimp.scss" lang="scss"></style>

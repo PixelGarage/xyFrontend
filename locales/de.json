@@ -29,22 +29,6 @@
     "api-test": {
       "title": "Gerichte",
       "subtitle": "Entdecke Gerichte für jede Art von Anlass, Zutat und Fertigkeit."
-    },
-    "mailchimp": {
-      "emailFieldName": "Email",
-      "success": "Du hast unseren Newsletter erfolgreich abonniert. Danke!",
-      "error": "Hoppla, bitte eine korrekte Email-Adresse angeben!",
-      "placeholder": "Email eingeben...",
-      "placeholder-err": "Email-Adresse nicht korrekt!",
-      "submit": "Senden",
-      "gdpr": {
-        "label": "Zustimmung zur Vermarktung",
-        "select-intro": "Bitte wählen Sie, ob 'Dein Grundeinkommen' Sie weiterhin per Mail kontaktieren darf:",
-        "checkbox-email": "Email",
-        "unsubscribe": "Sie können sich jederzeit wieder abmelden, indem Sie auf den Link in der Fußzeile unserer E-Mails klicken. Für Informationen über unsere Datenschutzpraktiken besuchen Sie bitte unsere Website.",
-        "legal": "Wir nutzen Mailchimp als unsere Marketingplattform. Mit einem Klick bestätigen Sie, dass Ihre Daten zur Verarbeitung an Mailchimp übermittelt werden dürfen. {link}",
-        "link": "Erfahren Sie hier mehr über die Datenschutzpraktiken von Mailchimp."
-      }
     }
   },
   "page": {
