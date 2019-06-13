@@ -16,7 +16,7 @@ export const getters = {
 export const mutations = {
   setLanguage(state, locale) {
     if (state.locales.indexOf(locale) !== -1) {
-      state.locale = locale
+      state.locale = locale;
       console.debug('New language set to %s', locale);
     }
   }

@@ -1,22 +1,27 @@
-<template>
-  <AppSection>
-    <article v-html="impressum"></article>
-  </AppSection>
-</template>
-
 <script>
-import AppSection from '~/components/AppSection.vue'
+import Section from '~/components/Section.vue'
 import Impressum from "~/content/impressum.md"
 
 export default {
+  transition: 'fading',
   components: {
-    AppSection,
+    Section,
   },
   head () {
     return {
       title: this.$t('page.impressum.title'),
       titleTemplate: `%s | ${process.env.APP_TITLE}`,
-      meta: [ { hid: 'description', name: 'description', content: this.$t('page.impressum.meta.descr') } ]
+      meta: [
+        { hid: 'description', name: 'description', content: this.$t('page.impressum.meta.descr') },
+        { hid: 'og:title', property: 'og:title', content: this.$t('page.impressum.meta.title') },
+        { hid: 'og:description', property: 'og:description', content: this.$t('page.impressum.meta.descr') },
+        { hid: 'og:url', property: 'og:url', content: this.$store.state.basePath + this.$i18n.path('impressum') },
+        { hid: 'og:image', property: 'og:image', content: this.$store.state.basePath + '/bge-meta-image.jpg' },
+        { hid: 'twitter:image', property: 'twitter:image', content: this.$store.state.basePath + '/bge-meta-image.jpg' },
+        { hid: 'twitter:title', property: 'twitter:title', content: this.$t('page.impressum.meta.title') },
+        { hid: 'twitter:description', property: 'twitter:description', content: this.$t('page.impressum.meta.descr') },
+        { hid: 'twitter:url', property: 'twitter:url', content: this.$store.state.basePath + this.$i18n.path('impressum') },
+      ]
     }
   },
   data () {
@@ -24,25 +29,40 @@ export default {
       impressum: Impressum,
     }
   }
-  
+
 }
 </script>
 
+<template>
+  <article class="impressum">
+    <b-row>
+      <b-col class="col col-12">
+        <div v-html="impressum"></div>
+      </b-col>
+    </b-row>
+  </article>
+</template>
+
 <style lang="scss">
   /*
-  * Impressum page section 
+  * Impressum page section
   * --------------------------------------------------*/
   @import '~/assets/scss/page.scss';
 
-  article {
-    margin: 3rem auto;
-    max-width: 700px;
-    @include pxl-wysiwyg-body();
 
-    ol {
-      padding-left: 20px;
-      font-weight: bold;
+  article {
+    @include pxl-spacey(py, s1, section);
+
+    section {
+      @include pxl-space0(py);
+
+      h2 {
+        font-weight: bold;
+      }
+
+      p {
+        @include pxl-subtext();
+      }
     }
   }
 </style>
-

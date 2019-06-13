@@ -1,18 +1,18 @@
 ### Kontakt
 Verein «Dein Grundeinkommen»
-Nonnenweg 16
-4055 Basel
+Gerbergasse 30
+4001 Basel
 
 Kontakt:
 info@deinbge.ch
 
 Medien:
 medien@deinbge.ch
-+41 76 577 94 45
++41 79 276 55 73
 
 ### Webseite
 Konzept & Entwicklung: pixelgarage.ch
-Design: morgerweb.ch
+Design: Schätti und Lehmann
 
 ### Haftungsausschluss
 Der Autor übernimmt keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen.

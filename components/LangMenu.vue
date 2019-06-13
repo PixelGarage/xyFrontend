@@ -48,7 +48,7 @@ export default {
     .popover__nav {
       .popover__nav-item {
         a {
-          @include pxl-menu();
+          @include pxl-menutext();
           outline: none;
           color: $link-color;
           text-decoration: $link-decoration;

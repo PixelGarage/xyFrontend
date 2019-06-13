@@ -6,8 +6,9 @@ import JsonapiParse from 'jsonapi-parse';
 export default class JSONAPI {
   constructor(options, request) {
     this.request = request;
-    this.jsonapiPrefix = options.jsonapiPrefix || 'jsonapi';
-    this.useJsonapiSpec = options.useJsonapiSpec || true;
+    this.useJsonapiSpec = options.useJsonapiSpec;
+    this.jsonapiPrefix = options.jsonapiPrefix || false;
+    this.contentType = options.useJsonapiSpec ? 'application/vnd.api+json' : 'application/json';
   }
 
   /**
@@ -23,9 +24,9 @@ export default class JSONAPI {
    *   Resolves when the request is fulfilled, rejects if there's an error.
  */
   async get(resource, params, id = false) {
-    const url = `/${this.jsonapiPrefix}/${resource}${id ? `/${id}` : ''}${Object.keys(params).length ? `?${qs.stringify(params, {indices: false})}` : ''}`;
-    const response = await this.request.issueRequest(methods.get, url);
-    return this.useJsonapiSpec ? JsonapiParse.parse(response).data : JSON.parse(response);
+    const url = `${this.jsonapiPrefix ? `/${this.jsonapiPrefix}` : ''}/${resource}${id ? `/${id}` : ''}${Object.keys(params).length ? `?${qs.stringify(params, {indices: false})}` : ''}`;
+    let response = await this.request.issueRequest(methods.get, url);
+    return this.useJsonapiSpec ? JsonapiParse.parse(response).data : response;
   }
 
   /**
@@ -45,21 +46,15 @@ export default class JSONAPI {
    *   Resolves when the request is fulfilled, rejects if there's an error.
    */
   async post(resource, body, useXCSRF = false) {
-    const response = await (useXCSRF ?
+    let response = await (useXCSRF ?
       this.request.getXCSRFToken() :
       Promise.resolve()
     )
     .then(() => {
-      return this.request.issueRequest(
-        methods.post,
-        `/${this.jsonapiPrefix}/${resource}`,
-        {
-          'Content-Type': this.useJsonapiSpec ? 'application/vnd.api+json' : 'application/json'
-        },
-        body
-      );
+      const url = `${this.jsonapiPrefix ? `/${this.jsonapiPrefix}` : ''}/${resource}`;
+      return this.request.issueRequest( methods.post, url, { 'Content-Type': this.contentType }, body );
     });
-    return this.useJsonapiSpec ? JsonapiParse.parse(response).data : JSON.parse(response);
+    return this.useJsonapiSpec ? JsonapiParse.parse(response).data : response;
   }
 
   /**
@@ -79,22 +74,47 @@ export default class JSONAPI {
    *   Resolves when the request is fulfilled, rejects if there's an error.
    */
   async patch(resource, body, useXCSRF = false) {
-    const response = await (useXCSRF ?
+    let response = await (useXCSRF ?
       this.request.getXCSRFToken() :
       Promise.resolve()
     )
     .then(() => {
-      return this.request.issueRequest(
-        methods.patch,
-        `/${this.jsonapiPrefix}/${resource}`,
-        {
-          'Content-Type': this.useJsonapiSpec ? 'application/vnd.api+json' : 'application/json'
-        },
-        body
-      );
+      const url = `${this.jsonapiPrefix ? `/${this.jsonapiPrefix}` : ''}/${resource}`;
+      return this.request.issueRequest( methods.patch, url, { 'Content-Type': this.contentType }, body );
     });
     // return parsed object
-    return this.useJsonapiSpec ? JsonapiParse.parse(response).data : JSON.parse(response);
+    return this.useJsonapiSpec ? JsonapiParse.parse(response).data : response;
+  }
+
+  /**
+   * PUT json (not supported yet by jsonapi)
+   *
+   * Security (Cross-site request forgery):
+   * In order to protect itself from CSRF attacks, a PUT first requests a X-CSRF-Token 
+   * from the server, which is added to the request header when issuing the PUT request.
+   * 
+   * @param {string} resource
+   *   The relative path to resource to be patched.
+   * @param {string} id
+   *   An ID of an individual item to modify.
+   * @param  {object} body
+   *   JSON data sent to Drupal
+   * @param {boolean} useXCSRF
+   *   True if request has to be XCSRF protected.
+   * @return {promise}
+   *   Resolves when the request is fulfilled, rejects if there's an error.
+   */
+  async put(resource, id, body, useXCSRF = false) {
+    let response = await (useXCSRF ?
+      this.request.getXCSRFToken() :
+      Promise.resolve()
+    )
+    .then(() => {
+      const url = `${this.jsonapiPrefix ? `/${this.jsonapiPrefix}` : ''}/${resource}/${id}`;
+      return this.request.issueRequest( methods.put, url, { 'Content-Type': this.contentType }, body );
+    });
+    // return parsed object
+    return this.useJsonapiSpec ? JsonapiParse.parse(response).data : response;
   }
 
   /**
@@ -114,22 +134,16 @@ export default class JSONAPI {
    *   Resolves when the request is fulfilled, rejects if there's an error.
    */
   async delete(resource, id, useXCSRF = false) {
-    const response = await (useXCSRF ?
+    let response = await (useXCSRF ?
       this.request.getXCSRFToken() :
       Promise.resolve()
     )
     .then(() => {
-      const url = `/${this.jsonapiPrefix}/${resource}/${id}`;
-      return this.request.issueRequest(
-        methods.delete,
-        url,
-        {
-          'Content-Type': this.useJsonapiSpec ? 'application/vnd.api+json' : 'application/json'
-        }
-      );
+      const url = `${this.jsonapiPrefix ? `/${this.jsonapiPrefix}` : ''}/${resource}/${id}`;
+      return this.request.issueRequest( methods.delete, url, { 'Content-Type': this.contentType } );
     });
     // return parsed object
-    return this.useJsonapiSpec ? JsonapiParse.parse(response).data : JSON.parse(response);
+    return this.useJsonapiSpec ? JsonapiParse.parse(response).data : response;
   }
 
 };

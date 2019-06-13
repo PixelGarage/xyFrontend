@@ -1,4 +1,6 @@
-/* Image filters mixins */
+/*
+ * Image filters mixins
+ */
 
 @mixin pxl-blur($radius:4px){
     -webkit-filter: blur($radius);

@@ -2,10 +2,14 @@
   "header": {
     "menu": {
       "api-test": "Api-Test",
+      "form-elements": "Formular-Test",
+      "typography": "Typography-Test",
+      "grid-spacing": "Layout-Test",
       "contact": "Kontakt"
     }
   },
   "footer": {
+    "header": "Dein Grundeinkommen",
     "impressum": "Impressum",
     "data-protection": "Datenschutz",
     "newsletter": "Newsletter",
@@ -70,6 +74,14 @@
       "meta": {
         "descr": "Fehlerseite, das API auf dem Server ist nicht erreichbar."
       }
+    },
+    "error": {
+      "title": "Fehler",
+      "meta": {
+        "descr": "Fehlerseite"
+      },
+      "home": "Zurück zur Startseite",
+      "message": "Die Seite kann nicht dargestellt werden."
     }
     
   }

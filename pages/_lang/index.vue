@@ -1,5 +1,5 @@
 <template>
-  <AppSection class="main">
+  <Section class="main">
     <b-row>
       <b-col cols="12" md="6">
         <pxl-logo/>
@@ -8,17 +8,17 @@
         <div class="main-title text-center text-md-left">{{ $t('page.home.intro')}}</div>
       </b-col>
     </b-row>
-  </AppSection>
+  </Section>
 </template>
 
 <script>
-import AppSection from '~/components/AppSection.vue'
+import Section from '~/components/Section.vue'
 import PxlLogo from '~/components/logo/PxlLogo.vue'
 
 export default {
   layout: 'default',
   components: {
-    AppSection, PxlLogo,
+    Section, PxlLogo,
   },
   head () {
     return {
@@ -37,12 +37,5 @@ export default {
  * --------------------------------------------------*/
   @import '~/assets/scss/page.scss';
 
-  .main {
-    min-height: 60vh;
-
-    .main-title {
-      @include pxl-title();
-    }
-  }
 
 </style>

@@ -17,9 +17,9 @@ import Waterwheel from './lib/waterwheel';
  */
 class AuthenticationError extends Error {
   constructor(errorCode, message) {
-    super(message)
-    this.name = this.constructor.name
-    this.message = message
+    super(message);
+    this.name = this.constructor.name;
+    this.message = message;
     this.errorCode = errorCode
   }
 }
@@ -38,7 +38,7 @@ class PxlApiClient {
     this.options = {
       base: false,
       jsonapiPrefix: process.env.JSON_API_PREFIX,
-      useJsonapiSpec: process.env.JSON_API_SPEC == 'V1',
+      useJsonapiSpec: process.env.JSON_API_SPEC === 'V1',
       validation: false,
       timeout: 3000,
     };
@@ -134,11 +134,11 @@ class PxlApiClient {
    * Returns true, if a user is currently logged in, false otherwise.
    */
   loggedIn () {
-    return this.waterwheel.oauth.tokenInformation.access_token ? true : false;
+    return !!this.waterwheel.oauth.tokenInformation.access_token;
   }
 
   /**
-   * HTTP GET request method in JsonApi format.
+   * HTTP GET request method in JsonApi / Json format.
    * This requests a representation of the specified resource.
    * 
    * @param {string} uri
@@ -157,7 +157,7 @@ class PxlApiClient {
   }
 
   /**
-   * HTTP POST request method in JsonApi format.
+   * HTTP POST request method in JsonApi / Json format.
    * This request sends data to the server and results in a change on the server (not idempotent).
    * 
    * @param {string} uri
@@ -174,7 +174,7 @@ class PxlApiClient {
   }
 
   /**
-   * HTTP PATCH request method in JsonApi format. 
+   * HTTP PATCH request method in JsonApi / Json format. 
    * This request applies partial modifications to a resource.
    * 
    * @param {string} uri
@@ -210,7 +210,7 @@ class PxlApiClient {
   }
 
   /**
-   * HTTP DELETE request method in JsonApi format. 
+   * HTTP DELETE request method in JsonApi / Json format. 
    * This request deletes the specified resource
    *
   * @param {string} uri

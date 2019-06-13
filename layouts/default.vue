@@ -1,74 +1,73 @@
+<script>
+  /*
+   * Default layout with header and footer.
+   */
+  import Header from '~/components/Header'
+  import Footer from '~/components/Footer'
+
+  export default  {
+    components: { Header, Footer },
+    data() {
+      return {
+        fluid: true,
+        fluidMain: true,
+      }
+    },
+    head () {
+      return {
+        bodyAttrs: { class: 'layout-default'},
+      }
+    },
+  }
+</script>
+
+
 <template>
   <div>
-    <AppHeader v-bind:fluid="fluid"/>
-    <b-container v-bind:fluid="fluidMain">
-      <nuxt/>
-    </b-container>
-    <AppFooter v-bind:fluid="fluid"/>
+    <Header class="theme-white-black" :fluid="fluid"/>
+    <div class="main-container">
+      <b-container class="theme-white-black" :fluid="fluidMain">
+        <nuxt/>
+      </b-container>
+    </div>
+    <Footer class="theme-black-lightgray" :fluid="fluid"/>
   </div>
 </template>
 
-<script>
-import AppHeader from '~/components/AppHeader'
-import AppFooter from '~/components/AppFooter'
-
-export default  {
-  components: { AppHeader, AppFooter },
-  data() {
-    return {
-      fluid: true,
-      fluidMain: true,
-    }
-  }
-}
-</script>
 
 <style lang="scss">
 /*
  * Default Layout rules
  * --------------------------------------------------*/
-  @import "~/assets/scss/component.scss";
-
-  .fading-enter-active,
-  .fading-leave-active {
-    position: absolute;
-    top: 0;
-    left: $grid-gutter-width/2;
-    right: $grid-gutter-width/2;
-    bottom: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  .fading-enter,
-  .fading-leave-to {
-    opacity: 0;
-  }
-  .fading-enter-to,
-  .fading-leave {
-    opacity: 1;
-  }
+  @import "~/assets/scss/layout.scss";
 
   //
-  // slide left
-  .slide-left-enter-active,
-  .slide-left-leave-active {
-    position: absolute;
-    top: 0;
-    left: $grid-gutter-width/2;
-    right: $grid-gutter-width/2;
-    bottom: 0;
-    transition: transform 750ms ease-in-out;
-  }
-  .slide-left-enter {
-    transform: translateX(100%);
-  }
-  .slide-left-enter-to {
-    transform: translateX(0);
-  }
-  .slide-left-leave {
-    transform: translateX(0);
-  }
-  .slide-left-leave-to {
-    transform: translateX(-100%);
+  // Document
+  //
+  body.layout-default {
+    .main-container {
+      position: relative;
+      min-height: calc(100vh + #{$pxl-footer-min-height});
+      padding-bottom: $pxl-footer-min-height;
+
+      @include media-breakpoint-up(lg) {
+        padding-bottom: $pxl-footer-min-height-md;
+        min-height: calc(100vh + #{$pxl-footer-min-height-md});
+      }
+    }
+
+    footer {
+      display: flex;
+      position: relative;
+      align-items: center;
+      min-height: $pxl-footer-min-height;
+      margin-top: (-1 * $pxl-footer-min-height);
+
+      @include media-breakpoint-up(lg) {
+        margin-top: (-1 * $pxl-footer-min-height-md);
+        min-height: $pxl-footer-min-height-md;
+      }
+    }
   }
 
 </style>

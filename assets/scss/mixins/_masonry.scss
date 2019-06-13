@@ -1,0 +1,57 @@
+/*
+ * Masonry mixins
+ */
+
+// Variables for mixin
+// -------------------------
+$masonry-gutter-width: 3%;
+
+
+// Mixins
+// -------------------------
+//
+@mixin pxl-masonry {
+  margin: $masonry-gutter-width auto 0;
+
+  .gutter-sizer {
+    width: $masonry-gutter-width;
+  }
+
+  .grid-sizer, .grid-item {
+    margin: 0 0 $masonry-gutter-width;
+    width: 100%;
+    background-color: white;
+    border: 5px solid black;
+
+    @include media-breakpoint-up(sm) {
+      width: 50% - $masonry-gutter-width/2;
+    }
+    @include media-breakpoint-up(lg) {
+      width: 33.333333% - $masonry-gutter-width*2/3;
+    }
+  }
+
+  .grid-item {
+    @include pxl-wysiwyg-body();
+
+    img {
+      filter: sepia(1) brightness(1.1) grayscale(0.7);
+    }
+
+    em {
+      margin-bottom: 0.5rem;
+      @include pxl-subtext();
+    }
+
+    table {
+      @include pxl-subtext();
+      margin: -.5rem auto 1rem;
+      width: 100%;
+
+      th {
+        font-weight: normal;
+      }
+    }
+  }
+}
+

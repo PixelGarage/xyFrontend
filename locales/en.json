@@ -2,10 +2,14 @@
   "header": {
     "menu": {
       "api-test": "Api-Test",
+      "form-elements": "Form-Test",
+      "typography": "Typography-Test",
+      "grid-spacing": "Layout-Test",
       "contact": "Contact"
     }
   },
   "footer": {
+    "header": "Your basic income",
     "impressum": "Impressum",
     "data-protection": "Data protection",
     "newsletter": "Newsletter",
@@ -71,7 +75,15 @@
       "meta": {
         "descr": "Error page, server can't be reached right now."
       }
+    },
+    "error": {
+      "title": "Error",
+      "meta": {
+        "descr": "Error page"
+      },
+      "home": "Back to home",
+      "message": "The page cannot be displayed."
     }
-    
+
   }
 }

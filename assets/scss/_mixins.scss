@@ -1,10 +1,22 @@
-/* 
+/*
  * Pixelgarage mixins
  * --------------------------------------------------*/
 //
 // Imports all custom PXL mixins
 @import "mixins/general";
-@import "mixins/text";
-@import "mixins/images-filters";
-@import "mixins/transformations";
 @import "mixins/animation";
+@import "mixins/transformations";
+@import "mixins/images-filters";
+@import "mixins/masonry";
+// spacing
+@import "mixins/spaces";
+// grid
+@import "mixins/grid";
+// typography
+@import "mixins/link";
+@import "mixins/text";
+@import "mixins/text-headline";
+// form elements
+@import "mixins/form-elements";
+// theme
+@import "mixins/theme";

@@ -1,5 +1,4 @@
-## PRIVACY POLICY
-### Datenschutzbestimmungen
+## Datenschutzbestimmungen
 Diese Datenschutzerklärung ist auf die EU Datenschutz-Grundverordnung (DSGVO) ausgerichtet. Obwohl die DSGVO eine Regulierung der Europäischen Union ist, ist sie für uns von Bedeutung. Das schweizerische Datenschutzgesetz (DSG) ist vom EU-Recht stark beeinflusst, und Unternehmen ausserhalb der Europäischen Union bzw. des EWR haben die DSGVO unter bestimmten Umständen einzuhalten.
 
 Wir glauben, dass Jede:r ein fundamentales Recht auf Privatsphäre und sichere Daten im Internet hat. Darum nehmen wir die Datensicherheit und Privatsphäre unserer Kunden sehr ernst.

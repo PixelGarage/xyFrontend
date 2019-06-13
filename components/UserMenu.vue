@@ -13,10 +13,10 @@
         </div>
         <!-- The Login form visible when no user is logged in -->
         <div v-else-if="!loggedIn">
-          <b-form-group label="Name or email:" label-for="username" class="my-2">
+          <b-form-group label="Name or email:" label-for="username">
             <b-form-input id="username" type="text" v-model="loginForm.name" required placeholder="Enter user name or email"></b-form-input>
           </b-form-group>
-          <b-form-group label="Password:" label-for="password" class="my-2">
+          <b-form-group label="Password:" label-for="password">
             <b-form-input id="password" type="password" v-model="loginForm.password" required placeholder="Enter password"></b-form-input>
           </b-form-group>
           <b-button @click="onSubmit" type="button" variant="primary" class="button-login my-3">{{ $t('comp.user-menu.login') }}</b-button>
@@ -88,6 +88,8 @@ export default {
 </script>
 
 <style lang="scss">
+  @import "~/assets/scss/component.scss";
+
   #user_menu {
     padding: 0.5rem;
   }
@@ -103,6 +105,11 @@ export default {
   .user-img {
     width: 25px;
     height: auto;
+  }
+
+  .popover {
+    padding: 2rem;
+    @include theme-lightgray-black();
   }
 
 </style>
