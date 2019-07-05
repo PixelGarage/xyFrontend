@@ -11,13 +11,8 @@ export default {
   components: { TestApi },
   middleware: ['server-api-available'],
   async asyncData (context) {
-    return Promise.all([PxlApi.findAllLatestRecipes(6)]).then(
-      values => {
-        return {
-          latestRecipes: values[0],
-        }
-      }
-    )
+    const latestRecipes = await PxlApi.findAllLatestRecipes();
+    return { latestRecipes };
   },
   head () {
     return {

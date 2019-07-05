@@ -33,10 +33,9 @@ class PxlApiInst extends PxlApiClient {
       page: {
         limit
       },
-      include: 'image,image.thumbnail',
+      include: 'image',
       fields: {
-        recipes: 'title,difficulty,image',
-        images: 'name,thumbnail',
+        recipes: 'title,summary,image',
         files: 'filename,uri'
       }
     };

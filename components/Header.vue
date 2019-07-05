@@ -28,7 +28,7 @@ export default {
         <b-navbar-toggle class="header__toggle border-0" target="header__nav-collapse"></b-navbar-toggle>
         <b-collapse is-nav id="header__nav-collapse" class="header__nav-collapse s-pt-s1">
           <b-navbar-nav class="w-100 justify-content-end align-items-end text-center">
-            <b-nav-item class="header__nav-item" :to="$i18n.path('test/api-test')">{{ $t('header.menu.api-test') }}</b-nav-item>
+            <b-nav-item class="header__nav-item" :to="$i18n.path('test/test-api')">{{ $t('header.menu.api-test') }}</b-nav-item>
             <b-nav-item class="header__nav-item" :to="$i18n.path('test/form-elements')">{{ $t('header.menu.form-elements') }}</b-nav-item>
             <b-nav-item class="header__nav-item" :to="$i18n.path('test/typography')">{{ $t('header.menu.typography') }}</b-nav-item>
             <b-nav-item class="header__nav-item" :to="$i18n.path('test/grid-spacing')">{{ $t('header.menu.grid-spacing') }}</b-nav-item>
