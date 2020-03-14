@@ -22,7 +22,7 @@
     "@nuxtjs/axios": "^5.5.4",
     "@nuxtjs/dotenv": "^1.3.0",
     "@nuxtjs/markdownit": "^1.2.5",
-    "acorn": "^6.0.5",
+    "acorn": "^6.4.1",
     "bootstrap": "^4.1.3",
     "bootstrap-vue": "^2.0.0-rc.22",
     "cookieparser": "^0.1.0",
