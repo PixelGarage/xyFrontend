@@ -33,7 +33,7 @@
     "npm": "^6.5.0",
     "nuxt": "^2.8.1",
     "nuxt-client-init-module": "^0.1.4",
-    "sanitize-html": "^1.20.1",
+    "sanitize-html": "^2.3.2",
     "vee-validate": "^2.2.10",
     "vue-i18n": "^8.11.2",
     "vue-jsonp": "^0.1.8",
