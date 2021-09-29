@@ -27,7 +27,7 @@
     "bootstrap-vue": "^2.0.0-rc.22",
     "cookieparser": "^0.1.0",
     "cross-env": "^5.2.0",
-    "i": "^0.3.6",
+    "i": "^0.3.7",
     "js-cookie": "^2.2.0",
     "jsonapi-parse": "^2.0.0",
     "npm": "^6.5.0",
